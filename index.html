@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accademia IB – Formazione per Introducing Broker CFD</title>
+<meta name="description" content="Guida formativa per Introducing Broker nel settore CFD: come funzionano i broker, CPA, rebate, modelli ibridi, regolamentazione e glossario.">
+<style>
+  :root{
+    --bg:#f6f4ef; --card:#ffffff; --ink:#1b2430; --muted:#5b6675;
+    --line:#e2ddd2; --accent:#0f5c4a; --accent-soft:#e3efea; --warn:#8a4b0f; --warn-soft:#fbf0e0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+  h1,h2,h3,nav,button,label,input,table,.tag,.note,footer{font-family:"Segoe UI",Helvetica,Arial,sans-serif}
+  header.top{position:sticky;top:0;z-index:10;background:var(--ink);color:#fff}
+  .bar{max-width:1040px;margin:auto;padding:12px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .brand{font-weight:700;letter-spacing:.3px;margin-right:auto}
+  nav a{color:#cfd6df;text-decoration:none;font-size:14px;margin-right:14px;white-space:nowrap}
+  nav a:hover{color:#fff}
+  .wrap{max-width:820px;margin:auto;padding:0 16px}
+  .hero{padding:64px 0 40px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 16px}
+  .hero p{font-size:19px;color:var(--muted);margin:0}
+  section{padding:36px 0;border-top:1px solid var(--line)}
+  h2{font-size:27px;margin:0 0 6px}
+  h3{font-size:19px;margin:28px 0 6px}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .card h3{margin-top:0}
+  .card p{margin:0;font-size:16px}
+  .note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:6px;font-size:15px;margin:18px 0}
+  .note.warn{background:var(--warn-soft);border-color:var(--warn)}
+  .scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line);min-width:520px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--ink);color:#fff;font-weight:600}
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:18px}
+  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:4px}
+  input{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:16px}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
+  .res{background:var(--accent-soft);border-radius:10px;padding:14px}
+  .res small{display:block;font-family:"Segoe UI",Arial,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+  .res b{font-family:"Segoe UI",Arial,sans-serif;font-size:24px}
+  #verdict{font-family:"Segoe UI",Arial,sans-serif;font-weight:600;margin-top:14px}
+  dl{margin:0}
+  dt{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;margin-top:14px}
+  dd{margin:2px 0 0}
+  details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:10px 0}
+  summary{font-family:"Segoe UI",Arial,sans-serif;font-weight:600;cursor:pointer}
+  footer{background:var(--ink);color:#cfd6df;font-size:13px;line-height:1.55;padding:28px 0;margin-top:40px}
+  footer strong{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="bar">
+    <span class="brand">Accademia IB</span>
+    <nav>
+      <a href="#basi">Basi</a>
+      <a href="#broker">Il broker</a>
+      <a href="#compensi">CPA e rebate</a>
+      <a href="#calcolatore">Calcolatore</a>
+      <a href="#operativita">Operatività</a>
+      <a href="#regole">Regole</a>
+      <a href="#glossario">Glossario</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Diventare Introducing Broker nel mondo dei CFD</h1>
+    <p>Una guida completa e indipendente: come guadagna un broker, come viene pagato chi gli presenta clienti, e come scegliere tra CPA, rebate e modello ibrido.</p>
+  </div>
+
+  <section id="basi">
+    <span class="tag">Modulo 1</span>
+    <h2>Le basi: chi è l'Introducing Broker</h2>
+    <p>L'Introducing Broker (IB) è una persona o una società che presenta nuovi clienti a un broker e riceve in cambio un compenso. L'IB non esegue ordini e non detiene il denaro dei clienti: il conto viene aperto direttamente presso il broker, che resta responsabile di esecuzione, custodia dei fondi e verifiche di legge.</p>
+    <div class="grid">
+      <div class="card"><h3>Introducing Broker</h3><p>Ha una relazione diretta con i clienti (community, formazione, rete personale). Di solito è pagato a rebate, perché segue i clienti nel tempo.</p></div>
+      <div class="card"><h3>Affiliato</h3><p>Porta traffico online (siti, comparatori, pubblicità) senza seguire il cliente dopo la registrazione. Di solito è pagato a CPA.</p></div>
+      <div class="card"><h3>Money manager</h3><p>Gestisce o replica operazioni per conto dei clienti (PAMM, MAM, copy trading). È un'attività diversa, che in molti paesi richiede un'autorizzazione specifica.</p></div>
+    </div>
+    <div class="note">Il confine tra queste figure non è solo commerciale: da esso dipendono gli obblighi legali. Presentare un cliente è diverso dal consigliargli cosa comprare, attività riservata a soggetti autorizzati.</div>
+  </section>
+
+  <section id="broker">
+    <span class="tag">Modulo 2</span>
+    <h2>Come funziona e come guadagna un broker CFD</h2>
+    <p>Un CFD (contratto per differenza) permette di speculare sul prezzo di un bene, come una valuta, un indice o una materia prima, senza possederlo. Il cliente incassa o paga la differenza tra prezzo di apertura e prezzo di chiusura, quasi sempre usando la leva.</p>
+    <h3>Le fonti di ricavo del broker</h3>
+    <div class="scroll"><table>
+      <tr><th>Voce</th><th>Cos'è</th><th>Perché interessa all'IB</th></tr>
+      <tr><td>Spread</td><td>Differenza tra prezzo di acquisto e di vendita.</td><td>È la base su cui si calcola gran parte dei rebate.</td></tr>
+      <tr><td>Commissione</td><td>Importo fisso per lotto, tipico dei conti a spread ridotto (ECN/Raw).</td><td>Il rebate può essere una quota di questa commissione.</td></tr>
+      <tr><td>Swap</td><td>Costo o accredito per le posizioni tenute aperte oltre la giornata.</td><td>Di rado viene condiviso con l'IB.</td></tr>
+      <tr><td>Markup</td><td>Maggiorazione aggiunta allo spread, a volte su richiesta dell'IB.</td><td>Aumenta il compenso dell'IB ma peggiora le condizioni del cliente.</td></tr>
+    </table></div>
+    <h3>A-book e B-book</h3>
+    <p>Nel modello <strong>A-book</strong> il broker passa gli ordini a fornitori di liquidità esterni e guadagna su spread e commissioni. Nel modello <strong>B-book</strong> il broker è controparte diretta del cliente: le perdite del cliente sono ricavi per il broker. Molti broker usano un modello misto.</p>
+    <p>Per l'IB è importante saperlo: un compenso legato alle perdite dei clienti crea un conflitto d'interessi evidente, mentre uno legato ai volumi allinea l'IB a clienti che restano attivi a lungo.</p>
+  </section>
+
+  <section id="compensi">
+    <span class="tag">Modulo 3</span>
+    <h2>I modelli di compenso: CPA, rebate, ibrido</h2>
+
+    <h3>CPA (Cost Per Acquisition)</h3>
+    <p>Un pagamento una tantum per ogni cliente che soddisfa i criteri di qualifica. I criteri tipici sono un deposito minimo e un volume minimo negoziato entro un certo periodo. L'importo varia per paese del cliente e spesso cresce a scaglioni con il numero di clienti portati nel mese.</p>
+    <p>Da leggere con attenzione nel contratto: criteri di qualifica, tempi di pagamento, e clausole di <em>clawback</em>, cioè la restituzione del compenso se il cliente chiede lo storno del deposito o risulta fraudolento.</p>
+
+    <h3>Rebate (o revenue share a volume)</h3>
+    <p>Un compenso ricorrente per ogni lotto negoziato dai clienti presentati, espresso come importo fisso per lotto, come frazione di pip o come percentuale dello spread. Si matura finché il cliente opera, quindi il valore dipende dalla durata e dall'attività dei clienti.</p>
+    <p>Da verificare: differenze per strumento e tipo di conto, soglie minime di pagamento, frequenza degli accrediti, trattamento delle operazioni molto brevi, spesso escluse dal calcolo.</p>
+
+    <h3>Ibrido</h3>
+    <p>Un CPA ridotto all'ingresso più un rebate ridotto nel tempo. Dà liquidità immediata per coprire i costi di acquisizione e mantiene una rendita.</p>
+
+    <h3>Confronto</h3>
+    <div class="scroll"><table>
+      <tr><th></th><th>CPA</th><th>Rebate</th><th>Ibrido</th></tr>
+      <tr><td>Quando si incassa</td><td>Subito, una volta</td><td>Ogni mese, finché il cliente opera</td><td>Entrambi, in misura ridotta</td></tr>
+      <tr><td>Rischio per l'IB</td><td>Basso dopo la qualifica</td><td>Dipende dall'attività dei clienti</td><td>Medio</td></tr>
+      <tr><td>Premia</td><td>La quantità di clienti</td><td>La qualità e la durata</td><td>Un equilibrio</td></tr>
+      <tr><td>Adatto a</td><td>Chi fa pubblicità e traffico online</td><td>Formatori, community, reti personali</td><td>Chi ha costi iniziali ma clienti fedeli</td></tr>
+      <tr><td>Punto debole</td><td>Nessuna rendita; clausole di qualifica</td><td>Partenza lenta</td><td>Contratti più complessi</td></tr>
+    </table></div>
+
+    <h3>Un esempio numerico</h3>
+    <p>Un IB porta 20 clienti. Con un CPA di 400 $ e il 60% di clienti qualificati incassa 20 × 60% × 400 = <strong>4.800 $</strong>, una sola volta. Con un rebate di 8 $ per lotto e 5 lotti al mese per cliente incassa 20 × 5 × 8 = <strong>800 $ al mese</strong>. Il rebate supera il CPA dopo 6 mesi, a patto che i clienti restino attivi. Le cifre sono illustrative: le condizioni reali variano da broker a broker.</p>
+  </section>
+
+  <section id="calcolatore">
+    <span class="tag">Modulo 4</span>
+    <h2>Calcolatore: CPA o rebate?</h2>
+    <p>Inserisci le tue stime per vedere quale modello rende di più sul periodo scelto.</p>
+    <div class="calc">
+      <div class="fields">
+        <div><label for="c">Clienti presentati</label><input id="c" type="number" min="0" value="20"></div>
+        <div><label for="q">Clienti che si qualificano (%)</label><input id="q" type="number" min="0" max="100" value="60"></div>
+        <div><label for="cpa">CPA per cliente qualificato ($)</label><input id="cpa" type="number" min="0" value="400"></div>
+        <div><label for="l">Lotti al mese per cliente</label><input id="l" type="number" min="0" step="0.1" value="5"></div>
+        <div><label for="r">Rebate per lotto ($)</label><input id="r" type="number" min="0" step="0.1" value="8"></div>
+        <div><label for="m">Mesi di attività dei clienti</label><input id="m" type="number" min="1" value="12"></div>
+      </div>
+      <div class="results">
+        <div class="res"><small>Totale CPA</small><b id="oCpa">–</b></div>
+        <div class="res"><small>Rebate al mese</small><b id="oMonth">–</b></div>
+        <div class="res"><small>Totale rebate</small><b id="oReb">–</b></div>
+        <div class="res"><small>Pareggio</small><b id="oBe">–</b></div>
+      </div>
+      <p id="verdict"></p>
+    </div>
+    <div class="note warn">Il calcolo è una semplificazione: presume clienti tutti attivi per l'intero periodo. Nella realtà una parte smette di operare nei primi mesi, quindi conviene usare stime prudenti.</div>
+  </section>
+
+  <section id="operativita">
+    <span class="tag">Modulo 5</span>
+    <h2>Operatività quotidiana</h2>
+    <h3>Tracciamento</h3>
+    <p>Ogni IB riceve un link o un codice personale. Il cliente che si registra da quel link viene associato all'IB. Conviene verificare subito che l'associazione sia avvenuta, perché correggerla dopo è spesso difficile.</p>
+    <h3>Portale partner e reportistica</h3>
+    <p>Nel portale si controllano registrazioni, depositi, volumi e compensi maturati. Un buon broker mostra il dettaglio per cliente e per strumento, così l'IB può verificare i conteggi.</p>
+    <h3>Sub-IB e strutture a più livelli</h3>
+    <p>Un IB può reclutare altri IB e ricevere una quota dei loro compensi. È utile per crescere, ma richiede regole chiare e controllo su come i sub-IB si presentano al pubblico, perché la responsabilità reputazionale ricade su chi sta in cima.</p>
+    <h3>Come valutare un broker prima di firmare</h3>
+    <div class="grid">
+      <div class="card"><h3>Licenza</h3><p>Da quale autorità è autorizzato e per quali paesi può accettare clienti.</p></div>
+      <div class="card"><h3>Condizioni per il cliente</h3><p>Spread, esecuzione, prelievi rapidi. Un cliente scontento è un cliente perso.</p></div>
+      <div class="card"><h3>Contratto IB</h3><p>Qualifiche, clawback, durata del diritto al compenso, cause di recesso.</p></div>
+      <div class="card"><h3>Puntualità</h3><p>Pagamenti regolari e un referente che risponde.</p></div>
+    </div>
+  </section>
+
+  <section id="regole">
+    <span class="tag">Modulo 6</span>
+    <h2>Regolamentazione e comunicazione corretta</h2>
+    <p>I CFD sono prodotti complessi e ad alto rischio. Nell'Unione Europea l'offerta ai clienti al dettaglio è soggetta a misure restrittive introdotte dall'ESMA e poi adottate dalle autorità nazionali, in Italia dalla CONSOB.</p>
+    <h3>Le tutele principali per i clienti al dettaglio nell'UE</h3>
+    <div class="scroll"><table>
+      <tr><th>Misura</th><th>Contenuto</th></tr>
+      <tr><td>Limiti di leva</td><td>30:1 sulle principali coppie valutarie; 20:1 su valute minori, oro e principali indici; 10:1 su altre materie prime e indici minori; 5:1 su singole azioni; 2:1 su criptovalute.</td></tr>
+      <tr><td>Chiusura automatica</td><td>Le posizioni vengono chiuse quando il margine scende al 50% di quello richiesto.</td></tr>
+      <tr><td>Saldo negativo</td><td>Il cliente non può perdere più di quanto ha versato sul conto.</td></tr>
+      <tr><td>Incentivi</td><td>Vietati bonus e altri incentivi all'operatività.</td></tr>
+      <tr><td>Avvertenza di rischio</td><td>Obbligatoria e standardizzata, con la percentuale di conti al dettaglio in perdita presso quel broker.</td></tr>
+    </table></div>
+    <p>I broker con licenza fuori dall'UE offrono spesso leve più alte e bonus, ma con tutele minori per il cliente e limiti sui paesi in cui possono operare.</p>
+    <h3>Cosa non deve fare un IB</h3>
+    <ul>
+      <li>Promettere o lasciar intendere guadagni.</li>
+      <li>Dare raccomandazioni personalizzate su cosa comprare o vendere, senza autorizzazione.</li>
+      <li>Ricevere o gestire denaro dei clienti.</li>
+      <li>Omettere le avvertenze di rischio o nascondere il proprio rapporto economico con il broker.</li>
+      <li>Promuovere il broker in paesi dove non è autorizzato.</li>
+    </ul>
+    <div class="note warn">Anche i compensi dell'IB sono regolati: in alcune giurisdizioni i pagamenti legati ai volumi o alle perdite dei clienti al dettaglio sono limitati o vietati. Prima di firmare, chiedi conferma all'ufficio compliance del broker e, se serve, a un consulente legale.</div>
+  </section>
+
+  <section id="glossario">
+    <span class="tag">Modulo 7</span>
+    <h2>Glossario</h2>
+    <dl>
+      <dt>CFD</dt><dd>Contratto per differenza: strumento derivato che replica il prezzo di un bene senza possederlo.</dd>
+      <dt>Lotto</dt><dd>Unità di misura del volume. Nel forex un lotto standard vale 100.000 unità della valuta base.</dd>
+      <dt>Pip</dt><dd>Variazione minima convenzionale del prezzo di una coppia valutaria, di norma la quarta cifra decimale.</dd>
+      <dt>Spread</dt><dd>Differenza tra prezzo di acquisto e prezzo di vendita.</dd>
+      <dt>Leva</dt><dd>Rapporto tra il valore della posizione e il margine versato. Amplifica guadagni e perdite.</dd>
+      <dt>Margine</dt><dd>Somma bloccata a garanzia di una posizione aperta.</dd>
+      <dt>FTD</dt><dd>First Time Deposit: il primo deposito di un nuovo cliente.</dd>
+      <dt>Clawback</dt><dd>Restituzione di un compenso già pagato, prevista in caso di frode o storno.</dd>
+      <dt>KYC</dt><dd>Know Your Customer: verifica dell'identità del cliente, a carico del broker.</dd>
+      <dt>Sub-IB</dt><dd>IB reclutato da un altro IB, che riceve una quota dei suoi compensi.</dd>
+    </dl>
+  </section>
+
+  <section id="faq">
+    <span class="tag">Modulo 8</span>
+    <h2>Domande frequenti</h2>
+    <details><summary>Serve una licenza per fare l'IB?</summary><p>Dipende dal paese e da cosa fai in concreto. La semplice presentazione può non richiederla, ma consulenza, gestione e promozione attiva sono spesso attività riservate. Va verificato caso per caso.</p></details>
+    <details><summary>Posso cambiare modello di compenso dopo aver iniziato?</summary><p>Di solito sì, ma solo per i nuovi clienti: quelli già presentati restano legati al modello con cui sono entrati.</p></details>
+    <details><summary>Per quanto tempo ricevo il rebate su un cliente?</summary><p>Lo stabilisce il contratto. Alcuni broker lo riconoscono a vita, altri per un periodo limitato o solo finché l'IB resta attivo.</p></details>
+    <details><summary>Meglio CPA o rebate per chi comincia?</summary><p>Chi ha una community fedele tende a guadagnare di più con il rebate. Chi investe in pubblicità ha bisogno del CPA per rientrare dei costi. Il calcolatore qui sopra aiuta a stimarlo con i propri numeri.</p></details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Avvertenza di rischio.</strong> I CFD sono strumenti complessi e presentano un rischio elevato di perdere denaro rapidamente a causa della leva finanziaria. La maggior parte dei conti di investitori al dettaglio perde denaro negoziando CFD. Valuta se comprendi il funzionamento dei CFD e se puoi permetterti di correre l'elevato rischio di perdere il tuo denaro.</p>
+    <p>I contenuti di questo sito hanno scopo esclusivamente formativo e non costituiscono consulenza finanziaria, legale o fiscale, né sollecitazione all'investimento. Gli esempi numerici sono illustrativi.</p>
+  </div>
+</footer>
+
+<script>
+  var ids = ['c','q','cpa','l','r','m'];
+  function n(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+  function money(x){ return Math.round(x).toLocaleString('it-IT') + ' $'; }
+  function calc(){
+    var clients = n('c'), qual = Math.min(n('q'),100)/100, cpa = n('cpa'),
+        lots = n('l'), reb = n('r'), months = n('m');
+    var totCpa = clients * qual * cpa;
+    var monthly = clients * lots * reb;
+    var totReb = monthly * months;
+    document.getElementById('oCpa').textContent = money(totCpa);
+    document.getElementById('oMonth').textContent = money(monthly);
+    document.getElementById('oReb').textContent = money(totReb);
+    var be = monthly > 0 ? totCpa / monthly : null;
+    document.getElementById('oBe').textContent = be === null ? '–' : be.toLocaleString('it-IT',{maximumFractionDigits:1}) + ' mesi';
+    var v = '';
+    if (totCpa === 0 && totReb === 0) v = 'Inserisci i valori per confrontare i due modelli.';
+    else if (totReb > totCpa) v = 'Su ' + months + ' mesi rende di più il rebate: ' + money(totReb - totCpa) + ' in più del CPA.';
+    else if (totCpa > totReb) v = 'Su ' + months + ' mesi rende di più il CPA: ' + money(totCpa - totReb) + ' in più del rebate.';
+    else v = 'Su ' + months + ' mesi i due modelli si equivalgono.';
+    document.getElementById('verdict').textContent = v;
+  }
+  ids.forEach(function(id){ document.getElementById(id).addEventListener('input', calc); });
+  calc();
+</script>
+</body>
+</html>
