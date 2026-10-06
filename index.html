@@ -4,145 +4,244 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accademia IB – Formazione per Introducing Broker CFD</title>
-<meta name="description" content="Guida formativa per Introducing Broker nel settore CFD: come funzionano i broker, CPA, rebate, modelli ibridi, regolamentazione e glossario.">
+<meta name="description" content="Percorso formativo interattivo per Introducing Broker e affiliati nel settore CFD: test di livello, oltre 40 lezioni, manuale scritto, calcolatore CPA e rebate, glossario.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M9 23 L16 9 L23 23 M12.3 17.5 H19.7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f6f4ef; --card:#ffffff; --ink:#1b2430; --muted:#5b6675;
-    --line:#e2ddd2; --accent:#0f5c4a; --accent-soft:#e3efea; --warn:#8a4b0f; --warn-soft:#fbf0e0;
+    --navy:#0f172a; --ink:#1e293b; --muted:#64748b; --bg:#f8fafc; --card:#fff;
+    --line:#e2e8f0; --green:#2563eb; --green-d:#1d4ed8; --green-soft:#eff4ff; --red-soft:#fdeaea; --red:#b3261e;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
-  h1,h2,h3,nav,button,label,input,table,.tag,.note,footer{font-family:"Segoe UI",Helvetica,Arial,sans-serif}
-  header.top{position:sticky;top:0;z-index:10;background:var(--ink);color:#fff}
-  .bar{max-width:1040px;margin:auto;padding:12px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-  .brand{font-weight:700;letter-spacing:.3px;margin-right:auto}
-  nav a{color:#cfd6df;text-decoration:none;font-size:14px;margin-right:14px;white-space:nowrap}
-  nav a:hover{color:#fff}
-  .wrap{max-width:820px;margin:auto;padding:0 16px}
-  .hero{padding:64px 0 40px}
-  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 16px}
-  .hero p{font-size:19px;color:var(--muted);margin:0}
-  section{padding:36px 0;border-top:1px solid var(--line)}
-  h2{font-size:27px;margin:0 0 6px}
-  h3{font-size:19px;margin:28px 0 6px}
-  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
-  .card h3{margin-top:0}
-  .card p{margin:0;font-size:16px}
-  .note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:6px;font-size:15px;margin:18px 0}
-  .note.warn{background:var(--warn-soft);border-color:var(--warn)}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif}
+  button{font:inherit;cursor:pointer}
+  header{background:rgba(255,255,255,.92);backdrop-filter:blur(8px);color:var(--ink);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .bar{max-width:980px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .logo{font-weight:700;margin-right:auto;display:flex;align-items:center;gap:8px;background:none;border:0;color:var(--ink);font-size:17px;padding:0}
+  .logo .wm{font-size:20px;letter-spacing:0}
+  .logo .wm b{margin-left:7px;padding:2px 7px;border-radius:6px;background:var(--green-soft);color:var(--green-d);font-size:13px;letter-spacing:.02em;vertical-align:2px}
+  h1,h2,.wm,.res b{font-family:Manrope,Inter,"Segoe UI",sans-serif;font-weight:800;letter-spacing:-.02em}
+  nav{display:flex;gap:4px;flex-wrap:wrap}
+  nav button{background:none;border:0;color:#475569;padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600}
+  nav button:hover{color:var(--ink)}
+  nav button.on{background:var(--green-soft);color:var(--green-d)}
+  main{max-width:820px;margin:auto;padding:24px 16px 48px}
+  .view[hidden],.mart[hidden],.panel[hidden]{display:none}
+  .panel{box-shadow:0 1px 2px rgba(15,23,42,.04),0 10px 28px rgba(15,23,42,.05);background:var(--card);border-radius:14px;padding:28px;margin-bottom:18px;border:1px solid var(--line)}
+  .hero{background:linear-gradient(180deg,#fff 0%,#f1f5f9 100%)}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--green-soft);color:var(--green-d);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:16px 0 8px;letter-spacing:-.5px}
+  h1 em,h2 em{font-style:normal;color:var(--green)}
+  h2{font-size:24px;margin:0 0 10px;letter-spacing:-.3px}
+  h3{font-size:17px;margin:20px 0 4px}
+  .sub{color:var(--green-d);font-weight:700;margin:0 0 20px}
+  p{margin:0 0 12px}
+  .btn{display:inline-block;background:var(--green);color:#fff;border:0;border-radius:10px;padding:13px 24px;font-weight:700}
+  .btn:hover{background:#1d4ed8}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{background:#f1f5f9}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .feat b{display:block;margin-bottom:4px}
+  .feat p{margin:0;color:var(--muted);font-size:15px}
+  .tip{display:flex;gap:12px;align-items:flex-start;margin:18px 0}
+  .tip .av{flex:0 0 38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+  .tip .bub{background:var(--green-soft);border-radius:4px 16px 16px 16px;padding:12px 16px;flex:1}
+  .tip small{display:block;color:var(--green-d);font-weight:800;letter-spacing:1px;font-size:11px;text-transform:uppercase}
+  .prog{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:8px 0 4px}
+  .prog div{height:100%;background:var(--green);width:0;transition:width .4s}
+  .small{font-size:13px;color:var(--muted)}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:13px 16px;margin:8px 0;font-weight:600;color:var(--ink)}
+  .opt:hover{border-color:var(--green)}
+  .opt.ok{background:var(--green-soft);border-color:var(--green)}
+  .opt.ko{background:var(--red-soft);border-color:var(--red)}
+  .opt:disabled{cursor:default;opacity:1}
+  .lvl{margin-bottom:14px}
+  .lvlh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .lvlh b{font-size:17px}
+  .badge{background:var(--green);color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px;text-transform:uppercase;letter-spacing:.5px}
+  .lesson{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:6px 0;color:var(--ink)}
+  .lesson:hover{border-color:var(--green)}
+  .lesson .ck{flex:0 0 24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff}
+  .lesson.done .ck{background:var(--green);border-color:var(--green)}
+  .lesson .t{flex:1;font-weight:600}
+  .back{background:none;border:0;color:var(--muted);font-weight:700;padding:0;margin-bottom:12px}
+  .fb{margin-top:6px;font-size:15px;font-weight:600}
   .scroll{overflow-x:auto}
-  table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line);min-width:520px}
-  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{background:var(--ink);color:#fff;font-weight:600}
-  .calc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:18px}
-  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-  label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:4px}
-  input{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:16px}
-  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
-  .res{background:var(--accent-soft);border-radius:10px;padding:14px}
-  .res small{display:block;font-family:"Segoe UI",Arial,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
-  .res b{font-family:"Segoe UI",Arial,sans-serif;font-size:24px}
-  #verdict{font-family:"Segoe UI",Arial,sans-serif;font-weight:600;margin-top:14px}
-  dl{margin:0}
-  dt{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;margin-top:14px}
-  dd{margin:2px 0 0}
-  details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:10px 0}
-  summary{font-family:"Segoe UI",Arial,sans-serif;font-weight:600;cursor:pointer}
-  footer{background:var(--ink);color:#cfd6df;font-size:13px;line-height:1.55;padding:28px 0;margin-top:40px}
-  footer strong{color:#fff}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:480px;margin:10px 0}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--navy);color:#fff}
+  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:4px}
+  input{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;font:inherit}
+  input:focus{outline:none;border-color:var(--green)}
+  .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:16px}
+  .res{background:var(--green-soft);border-radius:14px;padding:14px}
+  .res small{display:block;font-size:11px;font-weight:800;color:var(--green-d);text-transform:uppercase;letter-spacing:.6px}
+  .res b{font-size:22px}
+  #verdict{font-weight:700;margin-top:14px}
+  .term{border-bottom:1px solid var(--line);padding:10px 0}
+  .term b{display:block}
+  footer{border-top:1px solid var(--line);padding-top:24px;max-width:820px;margin:auto;padding:0 16px 40px;font-size:12.5px;color:var(--muted);text-align:center;line-height:1.5}
+  footer strong{color:var(--ink)}
+
+  /* --- animazioni --- */
+  .view:not([hidden])>*{animation:rise .45s ease both}
+  .view:not([hidden])>*:nth-child(2){animation-delay:.07s}
+  .view:not([hidden])>*:nth-child(3){animation-delay:.14s}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .art{display:block;width:100%;max-width:440px;height:auto;margin:8px auto 16px;background:#fff;border:1px solid var(--line);border-radius:16px}
+  .art text{font:700 11px Inter,"Segoe UI",sans-serif;fill:#0f172a;text-anchor:middle}
+  .art text.w{fill:#fff}
+  .art .draw{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 4.5s ease-in-out infinite}
+  @keyframes draw{0%{stroke-dashoffset:420}60%,100%{stroke-dashoffset:0}}
+  .art .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
+  .art .ring{transform-box:fill-box;transform-origin:center;animation:ring 2.4s ease-out infinite}
+  @keyframes ring{from{transform:scale(.6);opacity:.9}to{transform:scale(1.7);opacity:0}}
+  .art .drop{animation:drop 3s ease-in infinite}
+  @keyframes drop{0%{transform:translateY(-46px);opacity:0}25%{opacity:1}45%,100%{transform:translateY(0);opacity:1}}
+  .art .grow{transform-box:fill-box;transform-origin:bottom;animation:grow 3s ease-in-out infinite}
+  @keyframes grow{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+  .d1{animation-delay:.4s!important}.d2{animation-delay:.8s!important}.d3{animation-delay:1.2s!important}.d4{animation-delay:1.6s!important}.d5{animation-delay:2s!important}
+  /* --- tappe --- */
+  .track{display:flex;align-items:flex-start;margin:18px 0 8px}
+  .stp{flex:1;text-align:center;font-size:11px;font-weight:700;color:var(--muted);position:relative}
+  .stp::before{content:"";position:absolute;top:13px;left:-50%;width:100%;height:3px;background:var(--line)}
+  .stp:first-child::before{display:none}
+  .stp.full::before,.stp.cur::before{background:var(--green)}
+  .stp i{position:relative;z-index:1;display:grid;place-items:center;width:28px;height:28px;margin:0 auto 4px;border-radius:50%;background:#fff;border:2px solid var(--line);font-style:normal}
+  .stp.full i{background:var(--green);border-color:var(--green);color:#fff}
+  @media (max-width:640px){.stp span{display:none}}
+  .stp.cur i{border-color:var(--green);color:var(--navy);animation:halo 1.8s ease-out infinite}
+  @keyframes halo{from{box-shadow:0 0 0 0 rgba(37,99,235,.6)}to{box-shadow:0 0 0 12px rgba(37,99,235,0)}}
+  /* --- barre calcolatore --- */
+  .bars>div{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:13px;font-weight:700}
+  .bars span{width:54px}
+  .bt{flex:1;height:14px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+  .bt div{height:100%;width:0;border-radius:999px;transition:width .5s}
+  #bCpa{background:var(--navy)}#bReb{background:var(--green)}
+  /* --- assistenti --- */
+  footer{padding-bottom:96px}
+  #fab{position:fixed;right:16px;bottom:16px;z-index:20;display:flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 8px 24px rgba(15,23,42,.3)}
+  #fab[hidden],#chat[hidden]{display:none}
+  #chat{position:fixed;right:16px;bottom:16px;z-index:21;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 32px));background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 48px rgba(15,23,42,.3);display:flex;flex-direction:column;overflow:hidden;animation:rise .3s ease both}
+  .ch{background:var(--navy);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+  .ch button{background:none;border:0;color:#fff;font-size:24px;line-height:1;padding:0 4px}
+  .tabs{display:flex;border-bottom:1px solid var(--line)}
+  .tabs button{flex:1;background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px;font-weight:700;font-size:13px;color:var(--muted)}
+  .tabs button.on{color:var(--navy);border-color:var(--green)}
+  #log{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#f1f5f9}
+  .msg{max-width:90%;padding:9px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;animation:rise .25s ease both}
+  .msg.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-top-left-radius:4px}
+  .msg.me{background:var(--navy);color:#fff;align-self:flex-end;border-top-right-radius:4px}
+  .msg small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--green-d);margin-bottom:2px}
+  .msg button{display:block;width:100%;margin-top:8px;background:var(--green-soft);border:1px solid var(--green);border-radius:12px;padding:7px 12px;font-size:13px;font-weight:700;color:var(--navy);text-align:left}
+  .msg button:disabled{opacity:.55;cursor:default}
+  .dots span{display:inline-block;width:6px;height:6px;margin-right:3px;border-radius:50%;background:var(--muted);animation:pulse 1s infinite}
+  #chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;border-top:1px solid var(--line)}
+  #chips button{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--ink)}
+  #cf{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+  #cf input{flex:1;min-width:0}#cf .btn{padding:10px 16px}
+  #toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,20px);background:var(--navy);color:#fff;border:1px solid var(--green);padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:.35s;z-index:30;white-space:nowrap}
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.art .draw{stroke-dashoffset:0}}
+
+  select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fff;color:var(--ink)}
+  #mbody .panel{scroll-margin-top:76px}
+  .toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .toc button{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--ink)}
+  .toc button:hover{border-color:var(--green);color:var(--green-d)}
+  .mart{padding:22px 0;border-top:1px solid var(--line)}
+  .mart:first-of-type{border-top:0;padding-top:8px}
+  .mart h3{font-family:Manrope,Inter,sans-serif;font-size:20px;font-weight:800;letter-spacing:-.01em;margin:0 0 2px}
+  .mart .small{display:block;margin-bottom:10px}
+  .mnote{background:var(--green-soft);border-left:3px solid var(--green);padding:10px 14px;border-radius:6px;font-size:15px}
+  .mart .btn{padding:8px 14px;font-size:13px}
+  @media print{
+    header,#fab,#chat,#toast,.noprint{display:none!important}
+    body{background:#fff;font-size:12pt}
+    main{max-width:none;padding:0}
+    .panel{box-shadow:none;border:0;padding:0 0 10px;background:#fff}
+    *{animation:none!important}
+    .mart h3{break-after:avoid}
+    table{min-width:0}
+  }
 </style>
 </head>
 <body>
 
-<header class="top">
+<header>
   <div class="bar">
-    <span class="brand">Accademia IB</span>
+    <button class="logo" data-go="home"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#2563eb"/><path d="M9 23 L16 9 L23 23 M12.3 17.5 H19.7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wm">Accademia<b>IB</b></span></button>
     <nav>
-      <a href="#basi">Basi</a>
-      <a href="#broker">Il broker</a>
-      <a href="#compensi">CPA e rebate</a>
-      <a href="#calcolatore">Calcolatore</a>
-      <a href="#operativita">Operatività</a>
-      <a href="#regole">Regole</a>
-      <a href="#glossario">Glossario</a>
-      <a href="#faq">FAQ</a>
+      <button data-go="home">Home</button>
+      <button data-go="test">Test di livello</button>
+      <button data-go="path">Percorso</button>
+      <button data-go="manual">Manuale</button>
+      <button data-go="calc">Calcolatore</button>
+      <button data-go="gloss">Glossario</button>
     </nav>
   </div>
 </header>
 
-<div class="wrap">
+<main>
 
-  <div class="hero">
-    <h1>Diventare Introducing Broker nel mondo dei CFD</h1>
-    <p>Una guida completa e indipendente: come guadagna un broker, come viene pagato chi gli presenta clienti, e come scegliere tra CPA, rebate e modello ibrido.</p>
+  <!-- HOME -->
+  <div class="view" id="home">
+    <div class="panel hero">
+      <span class="pill">Formazione per Introducing Broker</span>
+      <h1>Impara il mestiere dell'IB, <em>un passo alla volta</em></h1>
+      <p class="sub">Tutto il mondo delle affiliazioni nel trading, senza gergo.</p>
+      <p>Oltre quaranta lezioni in otto livelli, dalle basi ai modelli avanzati: broker europei e offshore, leva, compensi, marketing, tracciamento, contratti, numeri e regole. Fai il test, scopri il tuo livello e parti dal punto giusto: niente da rifare, niente da saltare.</p>
+      <div class="row" id="homeCta"></div>
+      <div id="homeProg"></div>
+      <div id="homeArt"></div>
+    </div>
+    <div class="grid">
+      <div class="feat"><b>Test di livello</b><p>Sedici domande, cinque minuti. Alla fine sai da dove partire.</p></div>
+      <div class="feat"><b>Percorso su misura</b><p>Lezioni nell'ordine giusto, con una domanda di verifica ciascuna.</p></div>
+      <div class="feat"><b>Calcolatore CPA / rebate</b><p>Metti i tuoi numeri e vedi quale modello rende di più.</p></div>
+      <div class="feat"><b>Glossario</b><p>Oltre cinquanta termini spiegati in una riga, con ricerca.</p></div>
+      <div class="feat"><b>Manuale scritto</b><p>Tutte le lezioni in forma di testo, da leggere, cercare e stampare.</p></div>
+      <div class="feat"><b>Simulatore di leva</b><p>Da 1:30 a 1:1000: margine, valore del pip e distanza dallo zero.</p></div>
+      <div class="feat"><b>Tre assistenti</b><p>Tutor, Coach ed Esaminatore: rispondono, ti guidano e ti interrogano.</p></div>
+    </div>
+    <div class="tip"><div class="av">IB</div><div class="bub"><small>Il consiglio dell'Accademia</small>Una lezione al giorno vale più di dieci la domenica. Si va avanti un passo alla volta.</div></div>
   </div>
 
-  <section id="basi">
-    <span class="tag">Modulo 1</span>
-    <h2>Le basi: chi è l'Introducing Broker</h2>
-    <p>L'Introducing Broker (IB) è una persona o una società che presenta nuovi clienti a un broker e riceve in cambio un compenso. L'IB non esegue ordini e non detiene il denaro dei clienti: il conto viene aperto direttamente presso il broker, che resta responsabile di esecuzione, custodia dei fondi e verifiche di legge.</p>
-    <div class="grid">
-      <div class="card"><h3>Introducing Broker</h3><p>Ha una relazione diretta con i clienti (community, formazione, rete personale). Di solito è pagato a rebate, perché segue i clienti nel tempo.</p></div>
-      <div class="card"><h3>Affiliato</h3><p>Porta traffico online (siti, comparatori, pubblicità) senza seguire il cliente dopo la registrazione. Di solito è pagato a CPA.</p></div>
-      <div class="card"><h3>Money manager</h3><p>Gestisce o replica operazioni per conto dei clienti (PAMM, MAM, copy trading). È un'attività diversa, che in molti paesi richiede un'autorizzazione specifica.</p></div>
+  <!-- TEST -->
+  <div class="view" id="test" hidden>
+    <div class="panel" id="testBox"></div>
+  </div>
+
+  <!-- PERCORSO -->
+  <div class="view" id="path" hidden>
+    <div class="panel hero">
+      <span class="pill">Il tuo percorso</span>
+      <h2 style="margin-top:14px" id="pathTitle"></h2>
+      <div class="track" id="track"></div>
+      <div class="prog"><div id="pathBar"></div></div>
+      <span class="small" id="pathCount"></span>
     </div>
-    <div class="note">Il confine tra queste figure non è solo commerciale: da esso dipendono gli obblighi legali. Presentare un cliente è diverso dal consigliargli cosa comprare, attività riservata a soggetti autorizzati.</div>
-  </section>
+    <div id="pathList"></div>
+  </div>
 
-  <section id="broker">
-    <span class="tag">Modulo 2</span>
-    <h2>Come funziona e come guadagna un broker CFD</h2>
-    <p>Un CFD (contratto per differenza) permette di speculare sul prezzo di un bene, come una valuta, un indice o una materia prima, senza possederlo. Il cliente incassa o paga la differenza tra prezzo di apertura e prezzo di chiusura, quasi sempre usando la leva.</p>
-    <h3>Le fonti di ricavo del broker</h3>
-    <div class="scroll"><table>
-      <tr><th>Voce</th><th>Cos'è</th><th>Perché interessa all'IB</th></tr>
-      <tr><td>Spread</td><td>Differenza tra prezzo di acquisto e di vendita.</td><td>È la base su cui si calcola gran parte dei rebate.</td></tr>
-      <tr><td>Commissione</td><td>Importo fisso per lotto, tipico dei conti a spread ridotto (ECN/Raw).</td><td>Il rebate può essere una quota di questa commissione.</td></tr>
-      <tr><td>Swap</td><td>Costo o accredito per le posizioni tenute aperte oltre la giornata.</td><td>Di rado viene condiviso con l'IB.</td></tr>
-      <tr><td>Markup</td><td>Maggiorazione aggiunta allo spread, a volte su richiesta dell'IB.</td><td>Aumenta il compenso dell'IB ma peggiora le condizioni del cliente.</td></tr>
-    </table></div>
-    <h3>A-book e B-book</h3>
-    <p>Nel modello <strong>A-book</strong> il broker passa gli ordini a fornitori di liquidità esterni e guadagna su spread e commissioni. Nel modello <strong>B-book</strong> il broker è controparte diretta del cliente: le perdite del cliente sono ricavi per il broker. Molti broker usano un modello misto.</p>
-    <p>Per l'IB è importante saperlo: un compenso legato alle perdite dei clienti crea un conflitto d'interessi evidente, mentre uno legato ai volumi allinea l'IB a clienti che restano attivi a lungo.</p>
-  </section>
+  <!-- LEZIONE -->
+  <div class="view" id="lesson" hidden>
+    <div class="panel" id="lessonBox"></div>
+  </div>
 
-  <section id="compensi">
-    <span class="tag">Modulo 3</span>
-    <h2>I modelli di compenso: CPA, rebate, ibrido</h2>
-
-    <h3>CPA (Cost Per Acquisition)</h3>
-    <p>Un pagamento una tantum per ogni cliente che soddisfa i criteri di qualifica. I criteri tipici sono un deposito minimo e un volume minimo negoziato entro un certo periodo. L'importo varia per paese del cliente e spesso cresce a scaglioni con il numero di clienti portati nel mese.</p>
-    <p>Da leggere con attenzione nel contratto: criteri di qualifica, tempi di pagamento, e clausole di <em>clawback</em>, cioè la restituzione del compenso se il cliente chiede lo storno del deposito o risulta fraudolento.</p>
-
-    <h3>Rebate (o revenue share a volume)</h3>
-    <p>Un compenso ricorrente per ogni lotto negoziato dai clienti presentati, espresso come importo fisso per lotto, come frazione di pip o come percentuale dello spread. Si matura finché il cliente opera, quindi il valore dipende dalla durata e dall'attività dei clienti.</p>
-    <p>Da verificare: differenze per strumento e tipo di conto, soglie minime di pagamento, frequenza degli accrediti, trattamento delle operazioni molto brevi, spesso escluse dal calcolo.</p>
-
-    <h3>Ibrido</h3>
-    <p>Un CPA ridotto all'ingresso più un rebate ridotto nel tempo. Dà liquidità immediata per coprire i costi di acquisizione e mantiene una rendita.</p>
-
-    <h3>Confronto</h3>
-    <div class="scroll"><table>
-      <tr><th></th><th>CPA</th><th>Rebate</th><th>Ibrido</th></tr>
-      <tr><td>Quando si incassa</td><td>Subito, una volta</td><td>Ogni mese, finché il cliente opera</td><td>Entrambi, in misura ridotta</td></tr>
-      <tr><td>Rischio per l'IB</td><td>Basso dopo la qualifica</td><td>Dipende dall'attività dei clienti</td><td>Medio</td></tr>
-      <tr><td>Premia</td><td>La quantità di clienti</td><td>La qualità e la durata</td><td>Un equilibrio</td></tr>
-      <tr><td>Adatto a</td><td>Chi fa pubblicità e traffico online</td><td>Formatori, community, reti personali</td><td>Chi ha costi iniziali ma clienti fedeli</td></tr>
-      <tr><td>Punto debole</td><td>Nessuna rendita; clausole di qualifica</td><td>Partenza lenta</td><td>Contratti più complessi</td></tr>
-    </table></div>
-
-    <h3>Un esempio numerico</h3>
-    <p>Un IB porta 20 clienti. Con un CPA di 400 $ e il 60% di clienti qualificati incassa 20 × 60% × 400 = <strong>4.800 $</strong>, una sola volta. Con un rebate di 8 $ per lotto e 5 lotti al mese per cliente incassa 20 × 5 × 8 = <strong>800 $ al mese</strong>. Il rebate supera il CPA dopo 6 mesi, a patto che i clienti restino attivi. Le cifre sono illustrative: le condizioni reali variano da broker a broker.</p>
-  </section>
-
-  <section id="calcolatore">
-    <span class="tag">Modulo 4</span>
-    <h2>Calcolatore: CPA o rebate?</h2>
-    <p>Inserisci le tue stime per vedere quale modello rende di più sul periodo scelto.</p>
-    <div class="calc">
+  <!-- CALCOLATORE -->
+  <div class="view" id="calc" hidden>
+    <div class="panel">
+      <span class="pill">Calcolatore</span>
+      <h2 style="margin-top:14px">CPA o <em>rebate</em>?</h2>
+      <p>Inserisci le tue stime per vedere quale modello rende di più sul periodo scelto.</p>
       <div class="fields">
         <div><label for="c">Clienti presentati</label><input id="c" type="number" min="0" value="20"></div>
         <div><label for="q">Clienti che si qualificano (%)</label><input id="q" type="number" min="0" max="100" value="60"></div>
@@ -157,113 +256,1083 @@
         <div class="res"><small>Totale rebate</small><b id="oReb">–</b></div>
         <div class="res"><small>Pareggio</small><b id="oBe">–</b></div>
       </div>
+      <div class="bars"><div><span>CPA</span><div class="bt"><div id="bCpa"></div></div></div><div><span>Rebate</span><div class="bt"><div id="bReb"></div></div></div></div>
       <p id="verdict"></p>
+      <div class="tip"><div class="av">IB</div><div class="bub"><small>Il consiglio dell'Accademia</small>Il calcolo presume clienti attivi per tutto il periodo. Nella realtà una parte smette nei primi mesi: usa stime prudenti. Le cifre iniziali sono solo un esempio.</div></div>
     </div>
-    <div class="note warn">Il calcolo è una semplificazione: presume clienti tutti attivi per l'intero periodo. Nella realtà una parte smette di operare nei primi mesi, quindi conviene usare stime prudenti.</div>
-  </section>
-
-  <section id="operativita">
-    <span class="tag">Modulo 5</span>
-    <h2>Operatività quotidiana</h2>
-    <h3>Tracciamento</h3>
-    <p>Ogni IB riceve un link o un codice personale. Il cliente che si registra da quel link viene associato all'IB. Conviene verificare subito che l'associazione sia avvenuta, perché correggerla dopo è spesso difficile.</p>
-    <h3>Portale partner e reportistica</h3>
-    <p>Nel portale si controllano registrazioni, depositi, volumi e compensi maturati. Un buon broker mostra il dettaglio per cliente e per strumento, così l'IB può verificare i conteggi.</p>
-    <h3>Sub-IB e strutture a più livelli</h3>
-    <p>Un IB può reclutare altri IB e ricevere una quota dei loro compensi. È utile per crescere, ma richiede regole chiare e controllo su come i sub-IB si presentano al pubblico, perché la responsabilità reputazionale ricade su chi sta in cima.</p>
-    <h3>Come valutare un broker prima di firmare</h3>
-    <div class="grid">
-      <div class="card"><h3>Licenza</h3><p>Da quale autorità è autorizzato e per quali paesi può accettare clienti.</p></div>
-      <div class="card"><h3>Condizioni per il cliente</h3><p>Spread, esecuzione, prelievi rapidi. Un cliente scontento è un cliente perso.</p></div>
-      <div class="card"><h3>Contratto IB</h3><p>Qualifiche, clawback, durata del diritto al compenso, cause di recesso.</p></div>
-      <div class="card"><h3>Puntualità</h3><p>Pagamenti regolari e un referente che risponde.</p></div>
+    <div class="panel">
+      <span class="pill">Simulatore di leva</span>
+      <h2 style="margin-top:14px">Quanto pesa la <em>leva</em>?</h2>
+      <p>Esempio su EUR/USD con valori approssimati in dollari: 1 lotto vale 100.000 $ e 1 pip vale 10 $ per lotto.</p>
+      <div class="fields">
+        <div><label for="sb">Saldo del conto ($)</label><input id="sb" type="number" min="0" value="500"></div>
+        <div><label for="sl">Leva massima</label><select id="sl"><option value="30">1:30 (dettaglio UE)</option><option value="100">1:100</option><option value="200">1:200</option><option value="500" selected>1:500</option><option value="1000">1:1000</option></select></div>
+        <div><label for="sv">Volume aperto (lotti)</label><input id="sv" type="number" min="0" step="0.01" value="1"></div>
+      </div>
+      <div class="results">
+        <div class="res"><small>Valore posizione</small><b id="sPos">–</b></div>
+        <div class="res"><small>Margine richiesto</small><b id="sMar">–</b></div>
+        <div class="res"><small>Valore di 1 pip</small><b id="sPip">–</b></div>
+        <div class="res"><small>Volume massimo</small><b id="sMax">–</b></div>
+        <div class="res"><small>Pip che azzerano il conto</small><b id="sWipe">–</b></div>
+      </div>
+      <p id="sVerdict" style="font-weight:700;margin-top:14px"></p>
+      <div class="tip"><div class="av">IB</div><div class="bub"><small>Il consiglio dell'Accademia</small>Prova lo stesso saldo e lo stesso volume con 1:30 e con 1:500: il rischio dell'operazione è identico, cambia solo quanto volume il broker ti lascia aprire. La leva alta non crea il rischio, lo rende accessibile.</div></div>
     </div>
-  </section>
+  </div>
 
-  <section id="regole">
-    <span class="tag">Modulo 6</span>
-    <h2>Regolamentazione e comunicazione corretta</h2>
-    <p>I CFD sono prodotti complessi e ad alto rischio. Nell'Unione Europea l'offerta ai clienti al dettaglio è soggetta a misure restrittive introdotte dall'ESMA e poi adottate dalle autorità nazionali, in Italia dalla CONSOB.</p>
-    <h3>Le tutele principali per i clienti al dettaglio nell'UE</h3>
-    <div class="scroll"><table>
-      <tr><th>Misura</th><th>Contenuto</th></tr>
-      <tr><td>Limiti di leva</td><td>30:1 sulle principali coppie valutarie; 20:1 su valute minori, oro e principali indici; 10:1 su altre materie prime e indici minori; 5:1 su singole azioni; 2:1 su criptovalute.</td></tr>
-      <tr><td>Chiusura automatica</td><td>Le posizioni vengono chiuse quando il margine scende al 50% di quello richiesto.</td></tr>
-      <tr><td>Saldo negativo</td><td>Il cliente non può perdere più di quanto ha versato sul conto.</td></tr>
-      <tr><td>Incentivi</td><td>Vietati bonus e altri incentivi all'operatività.</td></tr>
-      <tr><td>Avvertenza di rischio</td><td>Obbligatoria e standardizzata, con la percentuale di conti al dettaglio in perdita presso quel broker.</td></tr>
-    </table></div>
-    <p>I broker con licenza fuori dall'UE offrono spesso leve più alte e bonus, ma con tutele minori per il cliente e limiti sui paesi in cui possono operare.</p>
-    <h3>Cosa non deve fare un IB</h3>
-    <ul>
-      <li>Promettere o lasciar intendere guadagni.</li>
-      <li>Dare raccomandazioni personalizzate su cosa comprare o vendere, senza autorizzazione.</li>
-      <li>Ricevere o gestire denaro dei clienti.</li>
-      <li>Omettere le avvertenze di rischio o nascondere il proprio rapporto economico con il broker.</li>
-      <li>Promuovere il broker in paesi dove non è autorizzato.</li>
-    </ul>
-    <div class="note warn">Anche i compensi dell'IB sono regolati: in alcune giurisdizioni i pagamenti legati ai volumi o alle perdite dei clienti al dettaglio sono limitati o vietati. Prima di firmare, chiedi conferma all'ufficio compliance del broker e, se serve, a un consulente legale.</div>
-  </section>
+  <!-- MANUALE -->
+  <div class="view" id="manual" hidden>
+    <div class="panel hero">
+      <span class="pill">Manuale</span>
+      <h2 style="margin-top:14px">Tutte le lezioni, <em>da leggere</em></h2>
+      <p>Il testo completo del percorso, livello per livello. Puoi cercare una parola, oppure stampare il manuale e salvarlo in PDF.</p>
+      <div class="row noprint"><input id="mq" type="search" placeholder="Cerca nel manuale…" aria-label="Cerca nel manuale" style="flex:1;min-width:200px"><button class="btn ghost" id="mprint" type="button">Stampa o salva in PDF</button></div>
+      <div class="toc noprint" id="mtoc"></div>
+      <p class="small" id="mcount" style="margin:12px 0 0"></p>
+    </div>
+    <div id="mbody"></div>
+  </div>
 
-  <section id="glossario">
-    <span class="tag">Modulo 7</span>
-    <h2>Glossario</h2>
-    <dl>
-      <dt>CFD</dt><dd>Contratto per differenza: strumento derivato che replica il prezzo di un bene senza possederlo.</dd>
-      <dt>Lotto</dt><dd>Unità di misura del volume. Nel forex un lotto standard vale 100.000 unità della valuta base.</dd>
-      <dt>Pip</dt><dd>Variazione minima convenzionale del prezzo di una coppia valutaria, di norma la quarta cifra decimale.</dd>
-      <dt>Spread</dt><dd>Differenza tra prezzo di acquisto e prezzo di vendita.</dd>
-      <dt>Leva</dt><dd>Rapporto tra il valore della posizione e il margine versato. Amplifica guadagni e perdite.</dd>
-      <dt>Margine</dt><dd>Somma bloccata a garanzia di una posizione aperta.</dd>
-      <dt>FTD</dt><dd>First Time Deposit: il primo deposito di un nuovo cliente.</dd>
-      <dt>Clawback</dt><dd>Restituzione di un compenso già pagato, prevista in caso di frode o storno.</dd>
-      <dt>KYC</dt><dd>Know Your Customer: verifica dell'identità del cliente, a carico del broker.</dd>
-      <dt>Sub-IB</dt><dd>IB reclutato da un altro IB, che riceve una quota dei suoi compensi.</dd>
-    </dl>
-  </section>
+  <!-- GLOSSARIO -->
+  <div class="view" id="gloss" hidden>
+    <div class="panel">
+      <span class="pill">Glossario</span>
+      <h2 style="margin-top:14px">Le parole del <em>settore</em></h2>
+      <input id="gq" type="search" placeholder="Cerca un termine…" aria-label="Cerca un termine">
+      <div id="glist" style="margin-top:10px"></div>
+    </div>
+  </div>
 
-  <section id="faq">
-    <span class="tag">Modulo 8</span>
-    <h2>Domande frequenti</h2>
-    <details><summary>Serve una licenza per fare l'IB?</summary><p>Dipende dal paese e da cosa fai in concreto. La semplice presentazione può non richiederla, ma consulenza, gestione e promozione attiva sono spesso attività riservate. Va verificato caso per caso.</p></details>
-    <details><summary>Posso cambiare modello di compenso dopo aver iniziato?</summary><p>Di solito sì, ma solo per i nuovi clienti: quelli già presentati restano legati al modello con cui sono entrati.</p></details>
-    <details><summary>Per quanto tempo ricevo il rebate su un cliente?</summary><p>Lo stabilisce il contratto. Alcuni broker lo riconoscono a vita, altri per un periodo limitato o solo finché l'IB resta attivo.</p></details>
-    <details><summary>Meglio CPA o rebate per chi comincia?</summary><p>Chi ha una community fedele tende a guadagnare di più con il rebate. Chi investe in pubblicità ha bisogno del CPA per rientrare dei costi. Il calcolatore qui sopra aiuta a stimarlo con i propri numeri.</p></details>
-  </section>
-
-</div>
+</main>
 
 <footer>
-  <div class="wrap">
-    <p><strong>Avvertenza di rischio.</strong> I CFD sono strumenti complessi e presentano un rischio elevato di perdere denaro rapidamente a causa della leva finanziaria. La maggior parte dei conti di investitori al dettaglio perde denaro negoziando CFD. Valuta se comprendi il funzionamento dei CFD e se puoi permetterti di correre l'elevato rischio di perdere il tuo denaro.</p>
-    <p>I contenuti di questo sito hanno scopo esclusivamente formativo e non costituiscono consulenza finanziaria, legale o fiscale, né sollecitazione all'investimento. Gli esempi numerici sono illustrativi.</p>
-  </div>
+  <p><strong>Avvertenza di rischio.</strong> I CFD sono strumenti complessi e presentano un rischio elevato di perdere denaro rapidamente a causa della leva finanziaria. La maggior parte dei conti di investitori al dettaglio perde denaro negoziando CFD.</p>
+  <p>I contenuti hanno scopo esclusivamente formativo e non costituiscono consulenza finanziaria, legale o fiscale, né sollecitazione all'investimento. Gli esempi numerici sono illustrativi.</p>
 </footer>
 
+<button id="fab" type="button"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>Assistenti</button>
+<div id="chat" role="dialog" aria-label="Assistenti" hidden>
+  <div class="ch"><b>Assistenti</b><button id="cx" type="button" aria-label="Chiudi">×</button></div>
+  <div class="tabs"><button type="button" data-ag="tutor">Tutor</button><button type="button" data-ag="coach">Coach</button><button type="button" data-ag="exam">Esaminatore</button></div>
+  <div id="log" aria-live="polite"></div>
+  <div id="chips"></div>
+  <form id="cf"><input id="ci" placeholder="Scrivi una domanda…" autocomplete="off" aria-label="Scrivi una domanda"><button class="btn" type="submit">Invia</button></form>
+</div>
+<div id="toast" role="status"></div>
+
 <script>
-  var ids = ['c','q','cpa','l','r','m'];
-  function n(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) || v < 0 ? 0 : v; }
-  function money(x){ return Math.round(x).toLocaleString('it-IT') + ' $'; }
-  function calc(){
-    var clients = n('c'), qual = Math.min(n('q'),100)/100, cpa = n('cpa'),
-        lots = n('l'), reb = n('r'), months = n('m');
-    var totCpa = clients * qual * cpa;
-    var monthly = clients * lots * reb;
-    var totReb = monthly * months;
-    document.getElementById('oCpa').textContent = money(totCpa);
-    document.getElementById('oMonth').textContent = money(monthly);
-    document.getElementById('oReb').textContent = money(totReb);
-    var be = monthly > 0 ? totCpa / monthly : null;
-    document.getElementById('oBe').textContent = be === null ? '–' : be.toLocaleString('it-IT',{maximumFractionDigits:1}) + ' mesi';
-    var v = '';
-    if (totCpa === 0 && totReb === 0) v = 'Inserisci i valori per confrontare i due modelli.';
-    else if (totReb > totCpa) v = 'Su ' + months + ' mesi rende di più il rebate: ' + money(totReb - totCpa) + ' in più del CPA.';
-    else if (totCpa > totReb) v = 'Su ' + months + ' mesi rende di più il CPA: ' + money(totCpa - totReb) + ' in più del rebate.';
-    else v = 'Su ' + months + ' mesi i due modelli si equivalgono.';
-    document.getElementById('verdict').textContent = v;
+var LEVELS = ["Basi", "Il broker", "Compensi", "Acquisizione", "Operatività", "Numeri", "Regole", "Avanzato"];
+
+var LESSONS = [
+ /* ===== LIVELLO 1 · BASI ===== */
+ {lv:1, t:"Chi è l'Introducing Broker", min:4,
+  h:`<p>L'Introducing Broker (IB) è una persona o una società che presenta nuovi clienti a un broker e riceve in cambio un compenso.</p>
+     <p>L'IB non esegue ordini e non detiene il denaro dei clienti. Il conto viene aperto direttamente presso il broker, che resta responsabile di esecuzione, custodia dei fondi e verifiche di legge sull'identità del cliente.</p>
+     <p>Il valore dell'IB sta nella relazione: una community, un'attività di formazione, una rete di contatti. Il broker paga per raggiungere persone che da solo non raggiungerebbe.</p>
+     <p>Per il broker l'IB è un canale di acquisizione a costo variabile: paga solo quando arrivano clienti reali. Per questo i programmi partner sono così diffusi nel settore.</p>`,
+  tip:"Prima di cercare il broker che paga di più, chiediti che cosa offri tu ai tuoi clienti. È quello che li fa restare.",
+  q:"Chi custodisce il denaro dei clienti presentati da un IB?", o:["L'IB","Il broker","Entrambi, a metà"], a:1,
+  e:"Il conto è aperto presso il broker. L'IB non deve mai ricevere o gestire fondi dei clienti."},
+ {lv:1, t:"IB, affiliato e money manager", min:4,
+  h:`<p>Tre figure che spesso vengono confuse.</p>
+     <p><b>L'IB</b> ha un rapporto diretto e continuativo con i clienti. Di solito è pagato a rebate, perché li segue nel tempo.</p>
+     <p><b>L'affiliato</b> porta traffico online con siti, comparatori e pubblicità, senza seguire il cliente dopo la registrazione. Di solito è pagato a CPA.</p>
+     <p><b>Il money manager</b> gestisce o replica operazioni per conto dei clienti (PAMM, MAM, copy trading). È un'attività diversa, che in molti paesi richiede un'autorizzazione specifica.</p>
+     <p>Molti partner sono un misto: un formatore con un canale YouTube è insieme affiliato e IB. Conta capire quale parte del tuo lavoro genera valore, perché da lì dipende il modello di compenso giusto.</p>`,
+  tip:"Il confine non è solo commerciale: presentare un cliente è diverso dal consigliargli cosa comprare.",
+  q:"Quale figura è pagata più spesso a CPA?", o:["L'affiliato","Il money manager","Il sub-IB"], a:0,
+  e:"L'affiliato porta registrazioni e non segue il cliente: un pagamento una tantum è il modello naturale."},
+ {lv:1, t:"Come funziona un programma di affiliazione", min:5,
+  h:`<p>Ogni programma di affiliazione ha gli stessi attori.</p>
+     <p><b>L'inserzionista</b> (qui il broker) vuole nuovi clienti e paga per ottenerli.</p>
+     <p><b>Il partner</b> (affiliato o IB) li porta attraverso i propri canali.</p>
+     <p><b>Il sistema di tracciamento</b> registra quale partner ha portato quale cliente e calcola i compensi.</p>
+     <p><b>Il network</b>, quando c'è, è un intermediario che mette in contatto molti inserzionisti e molti partner, trattenendo una quota. Nel trading online prevalgono però i <b>programmi diretti</b>, gestiti dal reparto partnership del broker, con un referente dedicato chiamato partner manager o affiliate manager.</p>
+     <p>Il rapporto è regolato da un contratto e da un portale dove il partner trova link, materiali, statistiche e pagamenti.</p>`,
+  tip:"Il partner manager è la tua risorsa più utile: chi lo sente spesso ottiene condizioni e risposte migliori.",
+  q:"Nel trading online, quale formula di programma prevale?", o:["Il network di affiliazione","Il programma diretto del broker","Il passaparola senza contratto"], a:1,
+  e:"La maggior parte dei broker gestisce in proprio il programma partner, con portale e referente dedicati."},
+ {lv:1, t:"Cos'è un CFD: leva, margine, lotto", min:5,
+  h:`<p>Un CFD (contratto per differenza) permette di speculare sul prezzo di un bene, come una valuta, un indice o una materia prima, senza possederlo. Il cliente incassa o paga la differenza tra prezzo di apertura e prezzo di chiusura.</p>
+     <p><b>Leva:</b> rapporto tra il valore della posizione e la somma versata. Con leva 30:1 bastano circa 3.333 $ per una posizione da 100.000 $. Amplifica allo stesso modo guadagni e perdite.</p>
+     <p><b>Margine:</b> la somma bloccata a garanzia della posizione.</p>
+     <p><b>Lotto:</b> l'unità di volume. Nel forex un lotto standard vale 100.000 unità della valuta base, il mini lotto 10.000, il micro lotto 1.000. È su questa unità che si calcolano i rebate.</p>
+     <p>I CFD si negoziano fuori dai mercati regolamentati: la controparte del cliente è il broker o un suo fornitore di liquidità.</p>`,
+  tip:"Se non sai spiegare la leva in due frasi, non sei pronto a parlarne a un cliente.",
+  q:"Nel forex, quanto vale un lotto standard?", o:["1.000 unità","10.000 unità","100.000 unità"], a:2,
+  e:"Un lotto standard vale 100.000 unità della valuta base; il mini lotto 10.000, il micro 1.000."},
+ {lv:1, t:"Pip, spread e costo di un'operazione", min:5,
+  h:`<p>Il <b>pip</b> è la variazione minima convenzionale del prezzo di una coppia valutaria: di norma la quarta cifra decimale (la seconda per le coppie con lo yen).</p>
+     <p>Su EUR/USD un pip vale circa <b>10 $ per lotto standard</b>, 1 $ per mini lotto, 0,10 $ per micro lotto.</p>
+     <p>Lo <b>spread</b> è la differenza tra prezzo di acquisto e di vendita, e si misura in pip. Con uno spread di 1,2 pip, aprire un lotto di EUR/USD costa al cliente circa 12 $.</p>
+     <p>Qui nasce il tuo compenso: se il broker ti riconosce un rebate di 0,5 pip, incassi circa 5 $ per ogni lotto negoziato dai tuoi clienti, cioè una parte di quei 12 $.</p>
+     <p>Su indici, materie prime e azioni il valore di un punto cambia da strumento a strumento: per questo i rebate sono spesso diversi per categoria.</p>`,
+  tip:"Impara a convertire a mente pip in dollari: è il modo più rapido per capire se un'offerta di rebate è buona.",
+  q:"Su EUR/USD, quanto vale circa un pip per un lotto standard?", o:["1 $","10 $","100 $"], a:1,
+  e:"Un pip su un lotto standard di EUR/USD vale circa 10 $."},
+
+ /* ===== LIVELLO 2 · IL BROKER ===== */
+ {lv:2, t:"Come guadagna un broker", min:5,
+  h:`<p>Capire i ricavi del broker serve a capire da dove arriva il tuo compenso.</p>
+     <div class="scroll"><table>
+     <tr><th>Voce</th><th>Cos'è</th></tr>
+     <tr><td>Spread</td><td>Differenza tra prezzo di acquisto e di vendita. È la base di gran parte dei rebate.</td></tr>
+     <tr><td>Commissione</td><td>Importo fisso per lotto, tipico dei conti a spread ridotto.</td></tr>
+     <tr><td>Swap</td><td>Costo o accredito per le posizioni tenute aperte oltre la giornata. Di rado è condiviso con l'IB.</td></tr>
+     <tr><td>Risultato del B-book</td><td>Quando il broker è controparte, le perdite nette dei clienti sono un suo ricavo.</td></tr>
+     <tr><td>Altri costi</td><td>Conversione valutaria, inattività, prelievi: voci minori, in genere non condivise.</td></tr>
+     </table></div>
+     <p>Il rebate dell'IB è una quota di spread o commissione: più il cliente opera, più il broker incassa e più matura l'IB.</p>`,
+  tip:"Chiedi sempre al broker su quale voce è calcolato il tuo rebate: spread, commissione o entrambe.",
+  q:"Che cos'è lo spread?", o:["Un costo per le posizioni tenute la notte","La differenza tra prezzo di acquisto e di vendita","Un bonus sul deposito"], a:1,
+  e:"Lo spread è la differenza tra denaro e lettera. Il costo notturno è lo swap."},
+ {lv:2, t:"A-book e B-book", min:5,
+  h:`<p>Nel modello <b>A-book</b> il broker passa gli ordini a fornitori di liquidità esterni e guadagna su spread e commissioni.</p>
+     <p>Nel modello <b>B-book</b> il broker è controparte diretta del cliente: le perdite del cliente sono ricavi per il broker, e i suoi guadagni sono costi.</p>
+     <p>Molti broker usano un modello misto, decidendo cliente per cliente in base al profilo di rischio.</p>
+     <p>Per l'IB conta perché un compenso legato alle perdite dei clienti crea un conflitto d'interessi evidente. Un compenso legato ai volumi premia invece clienti che restano attivi a lungo.</p>
+     <p>Le sigle STP, ECN e market maker descrivono lo stesso tema dal lato dell'esecuzione: i primi due inoltrano gli ordini al mercato, il terzo fa da controparte.</p>`,
+  tip:"Un cliente che dura due anni vale più di dieci che bruciano il conto in un mese.",
+  q:"Nel modello B-book, il broker…", o:["Passa ogni ordine al mercato","È controparte diretta del cliente","Non guadagna dallo spread"], a:1,
+  e:"Nel B-book il broker tiene in casa il rischio: è la controparte del cliente."},
+ {lv:2, t:"Tipi di conto e markup", min:4,
+  h:`<p>Quasi tutti i broker offrono più famiglie di conti.</p>
+     <p><b>Conto standard:</b> nessuna commissione, spread più ampio. Il costo è tutto nello spread.</p>
+     <p><b>Conto ECN o Raw:</b> spread molto ridotto più una commissione fissa per lotto.</p>
+     <p><b>Conto cent o micro:</b> saldo espresso in centesimi, per chi inizia con importi piccoli. Genera volumi e rebate minimi.</p>
+     <p><b>Conto swap-free:</b> senza interessi notturni, nato per i clienti di fede islamica.</p>
+     <p>Il rebate cambia in base al conto scelto dal cliente, e di solito è più alto sui conti standard.</p>
+     <p><b>Markup:</b> maggiorazione aggiunta allo spread, a volte su richiesta dell'IB per aumentare il proprio compenso. Va dichiarato: peggiora le condizioni del cliente.</p>`,
+  tip:"Il markup aumenta il tuo incasso oggi e il rischio di perdere il cliente domani. Usalo con misura e in trasparenza.",
+  q:"Che effetto ha il markup sul cliente?", o:["Riduce lo spread","Peggiora le condizioni di trading","Nessuno"], a:1,
+  e:"Il markup allarga lo spread: il cliente paga di più a ogni operazione."},
+ {lv:2, t:"Piattaforme ed esecuzione", min:5,
+  h:`<p>I tuoi clienti giudicano il broker soprattutto dalla piattaforma e dall'esecuzione, e i reclami arrivano prima a te.</p>
+     <p><b>Piattaforme:</b> MetaTrader 4 e 5 restano le più diffuse; cTrader e le piattaforme proprietarie sono le alternative principali. Molti broker si integrano anche con TradingView.</p>
+     <p><b>Esecuzione a mercato:</b> l'ordine viene eseguito al miglior prezzo disponibile in quel momento.</p>
+     <p><b>Slippage:</b> differenza tra prezzo richiesto e prezzo ottenuto. È normale nei momenti di forte volatilità e può essere favorevole o sfavorevole.</p>
+     <p><b>Requote:</b> il broker propone un nuovo prezzo invece di eseguire. Se è frequente, è un segnale negativo.</p>
+     <p>Prima di proporre un broker apri un conto reale, anche piccolo, e prova tu stesso depositi, esecuzione e prelievi.</p>`,
+  tip:"Non promuovere un broker che non hai mai usato con soldi veri: la prima domanda dei clienti sarà proprio quella.",
+  q:"Che cos'è lo slippage?", o:["Una commissione fissa","La differenza tra prezzo richiesto e prezzo ottenuto","Il tempo di accredito di un prelievo"], a:1,
+  e:"Lo slippage è lo scarto tra il prezzo richiesto e quello di esecuzione, tipico dei mercati veloci."},
+ {lv:2, t:"Licenze ed entità del gruppo", min:6,
+  h:`<p>Lo stesso marchio opera quasi sempre con più società, ognuna con la propria licenza. Il cliente viene assegnato a una di esse in base al paese di residenza.</p>
+     <div class="scroll"><table>
+     <tr><th>Area</th><th>Autorità (esempi)</th><th>Caratteristiche tipiche</th></tr>
+     <tr><td>Unione Europea</td><td>CySEC (Cipro), BaFin (Germania), CONSOB (Italia)</td><td>Leva limitata, tutele forti, niente bonus</td></tr>
+     <tr><td>Regno Unito</td><td>FCA</td><td>Regole simili alla UE, niente CFD su cripto per il dettaglio</td></tr>
+     <tr><td>Australia</td><td>ASIC</td><td>Limiti di leva simili a quelli europei</td></tr>
+     <tr><td>Offshore</td><td>FSA (Seychelles), FSC (Mauritius), altre</td><td>Leva alta, bonus ammessi, tutele minori</td></tr>
+     </table></div>
+     <p><b>Fondi segregati:</b> il denaro dei clienti è tenuto separato da quello del broker.</p>
+     <p><b>Fondi di indennizzo:</b> in alcune giurisdizioni coprono i clienti se il broker fallisce, entro un massimale. Offshore di solito non esistono.</p>
+     <p>Un broker con licenza europea può operare negli altri paesi UE tramite passaporto. Fuori dalla UE valgono le regole di ciascun paese.</p>`,
+  tip:"Sappi sempre dire al cliente con quale società del gruppo sta firmando: è la prima cosa da controllare nei documenti di apertura.",
+  q:"Da cosa dipende, di norma, l'entità del gruppo che apre il conto al cliente?", o:["Dall'importo del deposito","Dal paese di residenza del cliente","Dalla piattaforma scelta"], a:1,
+  e:"I gruppi assegnano il cliente all'entità autorizzata a servire il suo paese di residenza."},
+
+ {lv:2, t:"Broker offshore: cosa sono e perché esistono", min:7,
+  h:`<p>Si chiamano offshore i broker, o più spesso le società di un gruppo, autorizzati in giurisdizioni con regole più leggere di quelle europee, britanniche o australiane.</p>
+     <p><b>Dove:</b> Seychelles (FSA), Mauritius (FSC), Vanuatu (VFSC), Belize (FSC), Bahamas (SCB), Isole Vergini Britanniche (FSC). Un caso a parte è Saint Vincent e Grenadine: l'autorità locale ha dichiarato di non rilasciare licenze né vigilare sull'attività forex, quindi una società registrata lì è una semplice società, non un intermediario vigilato.</p>
+     <p><b>Perché esistono:</b> per servire clienti di paesi senza una regolamentazione locale accessibile; per offrire condizioni che le autorità più severe vietano, cioè leva alta, bonus e apertura rapida del conto; per i costi di licenza e i requisiti di capitale più bassi.</p>
+     <p><b>Chi sono:</b> non solo operatori piccoli. Molti grandi gruppi affiancano alle entità europee una o più entità offshore per i clienti del resto del mondo.</p>
+     <div class="scroll"><table>
+     <tr><th>Aspetto</th><th>Entità UE</th><th>Entità offshore</th></tr>
+     <tr><td>Leva per il dettaglio</td><td>Massimo 30:1</td><td>Spesso 1:500, a volte 1:1000 e oltre</td></tr>
+     <tr><td>Bonus</td><td>Vietati</td><td>Ammessi</td></tr>
+     <tr><td>Saldo negativo</td><td>Protezione obbligatoria per legge</td><td>Solo se prevista dalle condizioni del broker</td></tr>
+     <tr><td>Fondo di indennizzo</td><td>Presente</td><td>Di norma assente</td></tr>
+     <tr><td>Fondi segregati</td><td>Obbligo sottoposto a vigilanza</td><td>Spesso previsti, con controlli più deboli</td></tr>
+     <tr><td>Reclami</td><td>Autorità e organismi di risoluzione</td><td>Strumenti limitati, giurisdizione lontana</td></tr>
+     <tr><td>Avvertenze di rischio</td><td>Standardizzate e obbligatorie</td><td>Non sempre richieste</td></tr>
+     </table></div>
+     <p>«Offshore» non significa di per sé truffa, e «regolamentato» non significa che tutti siano uguali: conta quale autorità vigila, e con quanta severità.</p>
+     <p><b>Come verificare una licenza:</b> cerca il numero sul registro pubblico dell'autorità indicata, controlla che nome della società e dominio del sito coincidano con quelli del registro, e leggi nel contratto con quale entità si firma.</p>`,
+  tip:"Una licenza va sempre verificata sul sito dell'autorità, mai sul sito del broker.",
+  q:"Cosa distingue una società registrata a Saint Vincent e Grenadine?", o:["Ha la licenza più severa","Non è vigilata come intermediario forex dall'autorità locale","Può operare liberamente nella UE"], a:1,
+  e:"L'autorità locale non rilascia licenze forex: la registrazione societaria non equivale a una vigilanza."},
+ {lv:2, t:"Leva 1:500: come funziona davvero", min:7,
+  h:`<p>Leva 1:500 significa che con 1 di margine si controlla una posizione di 500. Il margine richiesto è lo 0,2% del valore della posizione, contro il 3,33% circa della leva 1:30.</p>
+     <div class="scroll"><table>
+     <tr><th>Leva</th><th>Margine per 1 lotto (100.000 $)</th><th>Movimento contrario pari al margine</th></tr>
+     <tr><td>1:30</td><td>circa 3.333 $</td><td>circa 333 pip</td></tr>
+     <tr><td>1:100</td><td>1.000 $</td><td>100 pip</td></tr>
+     <tr><td>1:500</td><td>200 $</td><td>20 pip</td></tr>
+     <tr><td>1:1000</td><td>100 $</td><td>10 pip</td></tr>
+     </table></div>
+     <p><b>Esempio:</b> conto da 500 $. Con leva 1:500 si possono aprire fino a 2,5 lotti. A quel volume ogni pip vale 25 $: bastano 20 pip contrari, un movimento che su EUR/USD può avvenire in pochi minuti, per azzerare il conto. Con leva 1:30 lo stesso conto può aprire al massimo 0,15 lotti, e ogni pip vale 1,50 $.</p>
+     <p><b>La leva è un massimo, non un obbligo.</b> Il rischio reale dipende dalla dimensione della posizione rispetto al conto, cioè dalla leva effettiva. Un cliente con leva 1:500 che apre 0,05 lotti su 500 $ rischia quanto uno con leva 1:30. Il problema è che la leva alta rende possibile, e facile, esagerare.</p>
+     <p><b>Margin call e stop out:</b> quando il margine disponibile scende sotto una soglia il broker avvisa (margin call) e poi chiude le posizioni (stop out). Offshore la soglia di stop out è spesso più bassa che nella UE, dove è al 50%: il conto può scendere più vicino allo zero prima della chiusura.</p>
+     <p><b>Saldo negativo:</b> con movimenti violenti o aperture in gap il conto può andare sotto zero. Nella UE la protezione è obbligatoria. Offshore dipende dalle condizioni del broker: molti la offrono, ma è una scelta commerciale da verificare nel contratto.</p>
+     <p><b>Leva dinamica:</b> molti broker riducono la leva al crescere del saldo o del volume, e attorno a notizie importanti o al fine settimana.</p>
+     <p><b>Perché le autorità l'hanno limitata:</b> i dati raccolti in Europa prima del 2018 mostravano che la grande maggioranza dei conti al dettaglio perdeva denaro, e indicavano la leva elevata tra le cause principali.</p>
+     <p class="noprint"><button class="btn ghost" data-go="calc" type="button">Apri il simulatore di leva</button></p>`,
+  tip:"Quando spieghi la leva a un cliente, parti dai pip che servono per azzerare il conto: è il numero che si ricorda.",
+  q:"Con leva 1:500, quanto margine serve circa per un lotto standard da 100.000 $?", o:["200 $","1.000 $","3.333 $"], a:0,
+  e:"100.000 $ ÷ 500 = 200 $."},
+
+ /* ===== LIVELLO 3 · COMPENSI ===== */
+ {lv:3, t:"Il CPA", min:6,
+  h:`<p>CPA significa Cost Per Acquisition: un pagamento una tantum per ogni cliente che soddisfa i criteri di qualifica.</p>
+     <p><b>Criteri tipici:</b> un deposito minimo e un volume minimo negoziato entro un certo periodo. Senza qualifica non c'è pagamento.</p>
+     <p><b>Importi:</b> variano per paese del cliente, raggruppati in fasce (tier), e spesso crescono a scaglioni con il numero di clienti portati nel mese. Sul mercato si vedono cifre da poche centinaia a oltre mille dollari per i paesi più ricercati.</p>
+     <p><b>Clawback:</b> il broker può chiedere indietro il compenso se il cliente storna il deposito o risulta fraudolento.</p>
+     <p><b>Tetti e qualità:</b> molti contratti prevedono un limite mensile di CPA e la revisione del traffico se i clienti depositano una volta e spariscono.</p>
+     <p>Il CPA dà liquidità immediata, utile a chi sostiene costi pubblicitari, ma non genera alcuna rendita.</p>`,
+  tip:"Leggi i criteri di qualifica prima dell'importo. Un CPA alto con qualifiche irraggiungibili vale zero.",
+  q:"Che cos'è il clawback?", o:["Un bonus per i migliori IB","La restituzione di un compenso già pagato","Una commissione sul prelievo"], a:1,
+  e:"Con il clawback il broker recupera un CPA già pagato, ad esempio in caso di frode o storno."},
+ {lv:3, t:"Il rebate", min:6,
+  h:`<p>Il rebate è un compenso ricorrente per ogni lotto negoziato dai clienti presentati.</p>
+     <p><b>Come si esprime:</b> importo fisso per lotto, frazione di pip oppure percentuale dello spread. Un rebate di 0,5 pip su EUR/USD equivale a circa 5 $ per lotto.</p>
+     <p><b>Quanto dura:</b> finché il cliente opera, salvo limiti previsti dal contratto.</p>
+     <p><b>Da verificare:</b> differenze per strumento e tipo di conto, soglia minima e frequenza di pagamento, trattamento delle operazioni molto brevi, spesso escluse dal calcolo.</p>
+     <p><b>Rebate al cliente:</b> alcuni IB girano una parte del rebate ai propri clienti come cashback. Nella UE può essere considerato un incentivo vietato: va chiesto alla compliance del broker.</p>
+     <p>Il rebate parte lentamente e cresce nel tempo: premia la qualità e la durata dei clienti, non il loro numero.</p>`,
+  tip:"Il tuo vero indicatore non sono i clienti portati, ma i lotti negoziati al mese dai clienti ancora attivi.",
+  q:"Da cosa dipende soprattutto il valore del rebate?", o:["Dal numero di registrazioni","Dal primo deposito","Dall'attività dei clienti nel tempo"], a:2,
+  e:"Il rebate matura sui volumi: conta quanto e per quanto tempo i clienti operano."},
+ {lv:3, t:"La revenue share", min:6,
+  h:`<p>Con la revenue share (RevShare) ricevi una percentuale dei ricavi netti che il broker ottiene dai tuoi clienti.</p>
+     <p><b>Il punto chiave è la definizione di ricavo netto.</b> Può comprendere spread, commissioni e swap, al netto di bonus, costi di pagamento e storni. Ogni broker la scrive in modo diverso: è la clausola da leggere per prima.</p>
+     <p><b>Riporto negativo:</b> se in un mese il ricavo netto dei tuoi clienti è negativo, molti contratti riportano il saldo al mese successivo. Chiedi se il riporto esiste e se si azzera a fine mese.</p>
+     <p><b>Il conflitto d'interessi:</b> dove il broker è controparte, il ricavo netto coincide in buona parte con le perdite dei clienti. Essere pagati su quella base significa guadagnare quando i clienti perdono, e diverse autorità lo limitano o lo vietano per i clienti al dettaglio.</p>
+     <p>Rispetto al rebate, la RevShare è meno prevedibile e più difficile da verificare.</p>`,
+  tip:"Se non riesci a ricalcolare da solo il tuo compenso partendo dai report, il modello è troppo opaco per te.",
+  q:"Qual è la clausola più importante in un accordo di revenue share?", o:["Il colore dei banner","La definizione di ricavo netto","Il numero di sub-IB ammessi"], a:1,
+  e:"Tutto dipende da cosa entra e cosa esce dal «ricavo netto» su cui si calcola la percentuale."},
+ {lv:3, t:"CPL, ibrido e altri modelli", min:5,
+  h:`<p>Oltre a CPA, rebate e RevShare esistono altre formule.</p>
+     <div class="scroll"><table>
+     <tr><th>Modello</th><th>Cosa paga</th><th>Quando si usa</th></tr>
+     <tr><td>CPL</td><td>Ogni contatto o registrazione valida</td><td>Campagne ad alto volume; importi bassi</td></tr>
+     <tr><td>Ibrido</td><td>CPA ridotto più rebate o RevShare ridotti</td><td>Chi ha costi iniziali e clienti che durano</td></tr>
+     <tr><td>Compenso fisso</td><td>Importo mensile o per evento</td><td>Sponsorizzazioni, grandi portali, eventi</td></tr>
+     <tr><td>Bonus a scaglioni</td><td>Premio al superamento di soglie di volume o clienti</td><td>Si somma agli altri modelli</td></tr>
+     <tr><td>Multilivello</td><td>Quota sui compensi dei sub-IB</td><td>Reti di partner</td></tr>
+     </table></div>
+     <p>CPC e CPM, cioè il pagamento per clic o per mille visualizzazioni, sono rari nel trading: il broker preferisce pagare risultati misurabili.</p>
+     <p>Nulla vieta di avere modelli diversi con broker diversi, o per canali diversi presso lo stesso broker.</p>`,
+  tip:"Chiedi sempre se i bonus a scaglioni si applicano a tutto il volume o solo alla parte che supera la soglia.",
+  q:"Che cosa remunera il modello CPL?", o:["Ogni lotto negoziato","Ogni contatto o registrazione valida","Le perdite dei clienti"], a:1,
+  e:"CPL significa Cost Per Lead: si paga il contatto, non il deposito né l'operatività."},
+ {lv:3, t:"Come scegliere il modello", min:6,
+  h:`<p>La scelta dipende da come acquisisci i clienti e da quanto restano.</p>
+     <div class="scroll"><table>
+     <tr><th></th><th>CPA</th><th>Rebate</th><th>Ibrido</th></tr>
+     <tr><td>Incasso</td><td>Subito, una volta</td><td>Ogni mese</td><td>Entrambi, ridotti</td></tr>
+     <tr><td>Premia</td><td>La quantità</td><td>Qualità e durata</td><td>Un equilibrio</td></tr>
+     <tr><td>Adatto a</td><td>Pubblicità e traffico</td><td>Formatori e community</td><td>Costi iniziali, clienti fedeli</td></tr>
+     <tr><td>Rischio</td><td>Qualifiche e clawback</td><td>Clienti che smettono</td><td>Contratto complesso</td></tr>
+     </table></div>
+     <p><b>Esempio:</b> 20 clienti. Con CPA di 400 $ e 60% di qualificati: 4.800 $ una volta. Con rebate di 8 $ per lotto e 5 lotti al mese a cliente: 800 $ al mese. Il rebate supera il CPA dopo 6 mesi, se i clienti restano attivi.</p>
+     <p>Tre domande per decidere: hai costi da recuperare subito? I tuoi clienti operano con continuità? Riesci a seguirli nel tempo? Due sì sulle ultime due indicano il rebate.</p>`,
+  tip:"Prova i tuoi numeri nel calcolatore prima di negoziare: sapere il tuo punto di pareggio cambia la trattativa.",
+  q:"Nell'esempio, dopo quanti mesi il rebate supera il CPA?", o:["3 mesi","6 mesi","12 mesi"], a:1,
+  e:"4.800 $ diviso 800 $ al mese fa 6 mesi."},
+
+ /* ===== LIVELLO 4 · ACQUISIZIONE ===== */
+ {lv:4, t:"Il funnel: da visitatore a cliente attivo", min:5,
+  h:`<p>Tra il primo contatto e il primo compenso ci sono più passaggi, e a ognuno si perde qualcuno.</p>
+     <p>1. <b>Visita</b> al tuo contenuto o alla tua pagina.</p>
+     <p>2. <b>Clic</b> sul tuo link tracciato.</p>
+     <p>3. <b>Registrazione</b> sul sito del broker.</p>
+     <p>4. <b>Verifica</b> dell'identità (KYC) approvata.</p>
+     <p>5. <b>Primo deposito</b> (FTD).</p>
+     <p>6. <b>Prima operazione</b> e, per il CPA, qualifica.</p>
+     <p>7. <b>Cliente attivo</b> nei mesi successivi.</p>
+     <p>La perdita più forte è quasi sempre tra registrazione e primo deposito: documenti non caricati, dubbi, tempi lunghi. È il punto in cui un IB presente fa la differenza, aiutando il cliente a completare i passaggi senza mai sostituirsi a lui.</p>`,
+  tip:"Misura ogni passaggio separatamente: migliorare il punto più debole rende più che portare altro traffico.",
+  q:"Dove si perde di solito la quota maggiore di persone?", o:["Tra registrazione e primo deposito","Tra primo deposito e prima operazione","Dopo un anno di attività"], a:0,
+  e:"Molti si registrano ma non completano verifica e deposito: è il passaggio più critico."},
+ {lv:4, t:"Contenuti e posizionamento sui motori di ricerca", min:5,
+  h:`<p>Guide, recensioni, confronti e video portano traffico per anni senza costi pubblicitari, ma richiedono tempo e costanza.</p>
+     <p><b>Cosa funziona:</b> guide per chi inizia, confronti tra broker con criteri dichiarati, spiegazioni di strumenti e piattaforme, risposte a domande precise.</p>
+     <p><b>Dove:</b> un sito proprio, YouTube, un podcast, una newsletter. Un sito di proprietà resta tuo anche se una piattaforma cambia le regole.</p>
+     <p><b>Onestà:</b> una recensione che elenca solo pregi non convince nessuno e può essere considerata ingannevole. Indica anche i limiti.</p>
+     <p><b>Trasparenza:</b> dichiara in modo visibile che ricevi un compenso se il lettore apre un conto dal tuo link.</p>
+     <p>I motori di ricerca applicano criteri severi ai contenuti finanziari: contano competenza dimostrabile, autore riconoscibile e informazioni aggiornate.</p>`,
+  tip:"Scrivi per rispondere a una domanda reale, non per inserire un link. Il link funziona quando la risposta è utile.",
+  q:"Cosa va dichiarato in una recensione con link di affiliazione?", o:["Nulla, se il contenuto è accurato","Che ricevi un compenso dal broker","Solo il nome del broker"], a:1,
+  e:"Il rapporto economico va reso esplicito e visibile, non nascosto in fondo alla pagina."},
+ {lv:4, t:"Community e formazione", min:5,
+  h:`<p>Gruppi, corsi e webinar sono il canale naturale dell'IB, perché creano una relazione continuativa.</p>
+     <p><b>Strumenti:</b> gruppi Telegram o Discord, dirette, webinar settimanali, corsi, incontri dal vivo.</p>
+     <p><b>Perché rende:</b> chi impara e viene seguito opera più a lungo, e il rebate cresce con la durata.</p>
+     <p><b>Il limite da non superare:</b> spiegare come funziona un'analisi è formazione. Dire «compra ora questo strumento» a persone specifiche è una raccomandazione, attività riservata a soggetti autorizzati in molti paesi. I gruppi di segnali sono il terreno più rischioso.</p>
+     <p><b>Moderazione:</b> rispondi di ciò che viene pubblicato nei tuoi spazi. Rimuovi promesse di guadagno, schermate di profitti e offerte di gestione da parte di terzi.</p>`,
+  tip:"Una community piccola e seguita rende più di una grande e abbandonata. Meglio cento persone attive che diecimila silenziose.",
+  q:"Quale attività è più a rischio dal punto di vista regolamentare?", o:["Un webinar su come leggere un grafico","Un gruppo che invia segnali operativi","Una guida all'uso della piattaforma"], a:1,
+  e:"I segnali operativi possono configurare raccomandazioni di investimento, attività riservata."},
+ {lv:4, t:"Pubblicità a pagamento", min:6,
+  h:`<p>La pubblicità porta risultati rapidi ma richiede capitale, competenza e attenzione alle regole.</p>
+     <p><b>Regole delle piattaforme:</b> Google richiede in molti paesi una certificazione agli inserzionisti di CFD e forex. Le reti social applicano restrizioni simili e bloccano spesso gli annunci non conformi.</p>
+     <p><b>Uso del marchio:</b> quasi tutti i contratti vietano di fare offerte sul nome del broker nelle ricerche a pagamento (brand bidding) e di usare domini simili al suo.</p>
+     <p><b>Annunci e pagine:</b> devono riportare l'avvertenza di rischio e non possono promettere guadagni. Spesso serve l'approvazione preventiva del broker.</p>
+     <p><b>I conti:</b> la pubblicità ha senso solo se il costo per acquisire un cliente è inferiore a quanto quel cliente ti rende. Con un CPA lo sai subito; con il rebate devi stimare la durata.</p>`,
+  tip:"Parti con un budget piccolo e un solo canale. Aumenta la spesa soltanto quando i numeri tornano per almeno un mese.",
+  q:"Che cos'è il brand bidding?", o:["Fare offerte sul nome del broker negli annunci di ricerca","Chiedere un CPA più alto","Usare il logo del broker in un video"], a:0,
+  e:"È l'acquisto del marchio del broker come parola chiave: i contratti di norma lo vietano."},
+ {lv:4, t:"Email, pagine di atterraggio e contatti", min:5,
+  h:`<p>Chi ti lascia un contatto può essere seguito nel tempo, anche se oggi non apre un conto.</p>
+     <p><b>Contenuto in omaggio:</b> una guida, un mini corso o un webinar in cambio dell'indirizzo email.</p>
+     <p><b>Consenso:</b> nella UE servono un'informativa chiara, un consenso esplicito per le comunicazioni commerciali e la possibilità di disiscriversi con un clic. Niente liste comprate.</p>
+     <p><b>Sequenza:</b> poche email utili che accompagnano dalla curiosità alla comprensione. La proposta del broker arriva dopo il valore, non prima.</p>
+     <p><b>Pagina di atterraggio:</b> un solo obiettivo, un titolo che dice cosa si ottiene, pochi campi, avvertenza di rischio visibile, link tracciato controllato.</p>
+     <p>La lista di contatti è l'unico canale che possiedi davvero: non dipende da algoritmi né dalle regole di una piattaforma.</p>`,
+  tip:"Controlla ogni link tracciato prima di inviare una email: un link sbagliato su mille destinatari non si recupera.",
+  q:"Cosa serve per inviare comunicazioni commerciali via email nella UE?", o:["Basta avere l'indirizzo","Il consenso esplicito del destinatario","L'autorizzazione del broker"], a:1,
+  e:"Serve un consenso esplicito, con informativa e possibilità di disiscrizione."},
+
+ /* ===== LIVELLO 5 · OPERATIVITÀ ===== */
+ {lv:5, t:"Tracciamento: link, cookie e postback", min:6,
+  h:`<p>Senza tracciamento corretto non c'è compenso. Vale la pena capire come funziona.</p>
+     <p><b>Link tracciato:</b> contiene il tuo identificativo. Chi clicca e si registra viene associato a te.</p>
+     <p><b>Cookie:</b> conserva l'associazione nel browser per un certo numero di giorni. Se il cliente si registra dopo la scadenza, o da un altro dispositivo, l'associazione può perdersi.</p>
+     <p><b>Ultimo clic:</b> di norma il cliente è attribuito all'ultimo partner su cui ha cliccato prima di registrarsi.</p>
+     <p><b>Codice partner:</b> inserito a mano in fase di registrazione, utile per chi arriva da video, eventi o passaparola.</p>
+     <p><b>Sub-ID:</b> un parametro aggiuntivo nel link che ti dice da quale campagna o contenuto arriva ogni cliente.</p>
+     <p><b>Postback:</b> una notifica automatica da server a server che avvisa il tuo sistema di registrazioni e depositi, senza dipendere dai cookie.</p>
+     <p>Controlla subito ogni nuova associazione: correggerla dopo è spesso difficile.</p>`,
+  tip:"Fai una registrazione di prova con il tuo link prima di diffonderlo. Meglio scoprire un errore oggi che fra cento clienti.",
+  q:"A cosa serve un sub-ID?", o:["A sapere da quale campagna arriva un cliente","Ad aumentare il rebate","A verificare l'identità del cliente"], a:0,
+  e:"Il sub-ID distingue le fonti di traffico all'interno dello stesso account partner."},
+ {lv:5, t:"Portale partner e reportistica", min:5,
+  h:`<p>Il portale partner è il tuo strumento di lavoro quotidiano.</p>
+     <p><b>Cosa trovi:</b> link e codici, materiali approvati, elenco dei clienti associati, depositi, volumi per strumento, compensi maturati e pagati.</p>
+     <p><b>Cosa controllare ogni settimana:</b> nuove registrazioni e loro stato di verifica, primi depositi, clienti attivi, lotti negoziati.</p>
+     <p><b>Riconciliazione mensile:</b> ricalcola il compenso atteso partendo dai volumi e confrontalo con quanto accreditato. Le differenze vanno segnalate subito, con i dati alla mano.</p>
+     <p><b>Dati dei clienti:</b> molti portali mostrano solo identificativi o dati parziali, per ragioni di riservatezza. È normale.</p>
+     <p>Un buon broker mostra il dettaglio per cliente e per strumento. Se i report sono solo totali, verificare diventa impossibile.</p>`,
+  tip:"Tieni un tuo foglio di calcolo mensile con clienti attivi, lotti e compensi: in tre mesi vedrai tendenze che il portale non mostra.",
+  q:"Cosa significa riconciliare i compensi?", o:["Chiedere un anticipo","Ricalcolare il compenso dai volumi e confrontarlo con l'accredito","Cambiare modello di compenso"], a:1,
+  e:"Riconciliare vuol dire verificare che quanto pagato corrisponda ai volumi registrati."},
+ {lv:5, t:"Sub-IB e strutture a più livelli", min:5,
+  h:`<p>Un IB può reclutare altri IB, detti sub-IB, e ricevere una quota dei loro compensi.</p>
+     <p><b>Come funziona:</b> il broker riconosce un rebate complessivo sulla rete. Chi sta in cima, spesso chiamato master IB, decide quanto trattenere e quanto lasciare ai livelli inferiori.</p>
+     <p><b>Perché usarla:</b> è il modo più rapido per crescere oltre la propria rete personale e per entrare in paesi o comunità che non conosci.</p>
+     <p><b>Cosa richiede:</b> regole scritte su territori, materiali e modo di presentarsi, più formazione continua.</p>
+     <p><b>Attenzione:</b> una struttura in cui si guadagna soprattutto reclutando altri partner, e non portando clienti reali, somiglia a uno schema piramidale ed è vietata.</p>
+     <p>La responsabilità reputazionale, e in parte contrattuale, ricade su chi sta in cima: se un sub-IB promette guadagni, il problema è anche tuo.</p>`,
+  tip:"Forma i tuoi sub-IB prima di dare loro un link. Questo percorso serve anche a quello.",
+  q:"Su chi ricade il comportamento scorretto di un sub-IB?", o:["Solo sul sub-IB","Anche sull'IB che lo ha reclutato","Solo sul cliente"], a:1,
+  e:"Chi costruisce la rete risponde della sua reputazione e spesso anche degli impegni contrattuali."},
+ {lv:5, t:"Il contratto, clausola per clausola", min:7,
+  h:`<p>Il contratto conta più di qualsiasi promessa verbale. Ecco le clausole da leggere con attenzione.</p>
+     <div class="scroll"><table>
+     <tr><th>Clausola</th><th>Cosa verificare</th></tr>
+     <tr><td>Qualifica</td><td>Deposito e volume minimi, tempo entro cui raggiungerli.</td></tr>
+     <tr><td>Clawback</td><td>In quali casi e fino a quando il broker può riprendersi un compenso.</td></tr>
+     <tr><td>Durata del diritto</td><td>Per quanto tempo matura il compenso su ogni cliente.</td></tr>
+     <tr><td>Dopo la cessazione</td><td>Se continui a ricevere compensi sui clienti già portati.</td></tr>
+     <tr><td>Esclusiva</td><td>Se puoi lavorare con altri broker.</td></tr>
+     <tr><td>Territori</td><td>In quali paesi puoi promuovere.</td></tr>
+     <tr><td>Conti propri e collegati</td><td>Di norma non generano compensi.</td></tr>
+     <tr><td>Materiali</td><td>Se serve l'approvazione preventiva.</td></tr>
+     <tr><td>Modifiche unilaterali</td><td>Se e con quale preavviso il broker può cambiare le condizioni.</td></tr>
+     <tr><td>Inattività</td><td>Se l'account viene chiuso senza nuovi clienti per un certo periodo.</td></tr>
+     <tr><td>Legge applicabile</td><td>Quale tribunale decide in caso di lite.</td></tr>
+     </table></div>
+     <p>Le condizioni concordate a voce o in chat vanno fatte confermare per iscritto, con data e nome del referente.</p>`,
+  tip:"Chiedi di parlare con un altro IB dello stesso broker. Dieci minuti valgono più di qualsiasi brochure.",
+  q:"Quale clausola stabilisce se ricevi compensi dopo la fine del rapporto?", o:["Quella sulla cessazione","Quella sul markup","Quella sui territori"], a:0,
+  e:"La clausola sugli effetti della cessazione dice se i compensi sui clienti già portati continuano."},
+ {lv:5, t:"Pagamenti e amministrazione", min:5,
+  h:`<p><b>Frequenza:</b> i rebate vengono accreditati con cadenza giornaliera, settimanale o mensile; il CPA di solito il mese successivo alla qualifica.</p>
+     <p><b>Soglia minima:</b> sotto un certo importo il pagamento slitta al periodo seguente.</p>
+     <p><b>Metodi:</b> bonifico, portafogli elettronici, accredito su un conto di trading o, presso alcuni broker, criptovalute. Verifica costi e tempi di ciascuno.</p>
+     <p><b>Documenti:</b> molti broker chiedono una fattura o una ricevuta per pagare, e verificano anche l'identità del partner.</p>
+     <p><b>Forma giuridica e tasse:</b> i compensi sono redditi da dichiarare. La forma più adatta (attività individuale o società) e il trattamento fiscale dipendono dal paese e dai volumi: è una decisione da prendere con un commercialista prima di iniziare, non dopo.</p>
+     <p>Conserva contratto, estratti dei compensi e corrispondenza: servono in caso di contestazioni e di controlli fiscali.</p>`,
+  tip:"Apri un conto bancario dedicato all'attività: separare i flussi semplifica contabilità e controlli.",
+  q:"Quando conviene definire forma giuridica e aspetti fiscali?", o:["Dopo il primo anno","Prima di iniziare, con un commercialista","Solo se il broker lo chiede"], a:1,
+  e:"Impostare subito l'attività in modo corretto evita problemi e costi successivi."},
+
+ /* ===== LIVELLO 6 · NUMERI ===== */
+ {lv:6, t:"Gli indicatori che contano", min:6,
+  h:`<p>Pochi numeri, guardati con regolarità, dicono tutto sulla salute della tua attività.</p>
+     <div class="scroll"><table>
+     <tr><th>Indicatore</th><th>Come si calcola</th></tr>
+     <tr><td>Tasso di registrazione</td><td>Registrazioni ÷ clic sul link</td></tr>
+     <tr><td>Tasso di primo deposito</td><td>Primi depositi ÷ registrazioni</td></tr>
+     <tr><td>Tasso di qualifica</td><td>Clienti qualificati ÷ primi depositi</td></tr>
+     <tr><td>Clienti attivi</td><td>Clienti con almeno un'operazione nel mese</td></tr>
+     <tr><td>Lotti per cliente attivo</td><td>Lotti del mese ÷ clienti attivi</td></tr>
+     <tr><td>Compenso per cliente attivo</td><td>Compensi del mese ÷ clienti attivi</td></tr>
+     <tr><td>Tasso di abbandono</td><td>Clienti che smettono nel mese ÷ attivi a inizio mese</td></tr>
+     </table></div>
+     <p>Il numero di registrazioni, da solo, non dice nulla: mille registrazioni senza depositi valgono zero.</p>
+     <p>Confronta ogni indicatore con il mese precedente più che con le medie di mercato, che variano molto per paese e canale.</p>`,
+  tip:"Scegli tre indicatori e guardali ogni lunedì. Dieci indicatori guardati una volta al trimestre non servono.",
+  q:"Come si calcola il tasso di primo deposito?", o:["Primi depositi ÷ registrazioni","Lotti ÷ clienti attivi","Compensi ÷ clic"], a:0,
+  e:"È la quota di registrati che arriva a versare per la prima volta."},
+ {lv:6, t:"Il valore del cliente nel tempo", min:6,
+  h:`<p>Il valore nel tempo di un cliente, spesso indicato con la sigla LTV, è quanto ti rende in totale dal primo giorno all'ultimo.</p>
+     <p><b>Formula semplice:</b> compenso mensile medio per cliente × numero medio di mesi di attività.</p>
+     <p><b>Esempio:</b> 5 lotti al mese × 8 $ di rebate = 40 $ al mese. Se il cliente resta attivo 9 mesi, vale 360 $. Con 18 mesi, 720 $.</p>
+     <p>Raddoppiare la durata raddoppia il valore, senza portare un solo cliente in più. Per questo la permanenza conta quanto l'acquisizione.</p>
+     <p><b>Confronto con il CPA:</b> se il valore nel tempo stimato è 360 $ e il broker offre 400 $ di CPA, il CPA conviene. Se i tuoi clienti durano 18 mesi, conviene il rebate.</p>
+     <p>All'inizio non hai dati tuoi: usa stime prudenti e correggile ogni tre mesi con i numeri reali.</p>`,
+  tip:"Calcola la durata media sui clienti che hanno già smesso, non su quelli ancora attivi: altrimenti la sottostimi.",
+  q:"Un cliente rende 40 $ al mese e resta attivo 9 mesi. Quanto vale?", o:["40 $","360 $","720 $"], a:1,
+  e:"40 $ × 9 mesi = 360 $."},
+ {lv:6, t:"Costi, costo di acquisizione e ritorno", min:6,
+  h:`<p>Un'attività di affiliazione ha costi reali, anche quando sembrano nascosti.</p>
+     <p><b>Costi tipici:</b> pubblicità, strumenti (sito, email, grafica, video), collaboratori, eventi, consulenze, e il tuo tempo.</p>
+     <p><b>Costo di acquisizione:</b> spesa totale ÷ nuovi clienti attivi. Se spendi 2.000 $ e ottieni 10 clienti attivi, ognuno ti costa 200 $.</p>
+     <p><b>Ritorno:</b> (ricavi − costi) ÷ costi. Con 2.000 $ di costi e 3.600 $ di ricavi nel tempo, il ritorno è dell'80%.</p>
+     <p><b>Tempo di rientro:</b> costo di acquisizione ÷ compenso mensile per cliente. Con 200 $ di costo e 40 $ al mese, rientri in 5 mesi. Se i clienti durano in media 4 mesi, stai perdendo denaro.</p>
+     <p>La regola pratica: il valore nel tempo di un cliente deve superare con margine il costo per acquisirlo, e il rientro deve arrivare prima dell'abbandono medio.</p>`,
+  tip:"Inserisci tra i costi anche le tue ore, a una tariffa realistica. È l'unico modo per capire se l'attività regge.",
+  q:"Spendi 2.000 $ e ottieni 10 clienti attivi. Qual è il costo di acquisizione?", o:["20 $","200 $","2.000 $"], a:1,
+  e:"2.000 $ ÷ 10 clienti = 200 $ per cliente."},
+ {lv:6, t:"Fidelizzare i clienti", min:5,
+  h:`<p>Trattenere un cliente costa meno che trovarne uno nuovo, e con il rebate rende di più.</p>
+     <p><b>Primi trenta giorni:</b> sono decisivi. Aiuta a capire piattaforma, dimensione delle posizioni e ordini di protezione.</p>
+     <p><b>Cultura del rischio:</b> chi rischia una piccola parte del conto per operazione dura molto più a lungo. Insegnarlo protegge il cliente e la tua attività.</p>
+     <p><b>Appuntamenti fissi:</b> un webinar settimanale o un'analisi periodica danno un motivo per restare.</p>
+     <p><b>Ascolto:</b> raccogli i problemi con il broker (prelievi lenti, assistenza) e portali al tuo referente. Risolverli è parte del tuo valore.</p>
+     <p><b>Il limite:</b> non spingere a operare di più per aumentare i tuoi volumi. È scorretto, e i clienti che operano troppo esauriscono il conto prima.</p>`,
+  tip:"Chiama o scrivi ai clienti che smettono di operare. Spesso basta una risposta a un dubbio per non perderli.",
+  q:"Cosa allunga di più la permanenza di un cliente?", o:["Operare con leva più alta","Una buona gestione del rischio","Fare più operazioni al giorno"], a:1,
+  e:"Chi limita il rischio per operazione conserva il capitale e resta attivo più a lungo."},
+ {lv:6, t:"Negoziare le condizioni", min:5,
+  h:`<p>Le condizioni di listino sono un punto di partenza. Si migliorano con i risultati.</p>
+     <p><b>Cosa ti dà forza:</b> volumi costanti, clienti che durano, pochi reclami, traffico pulito. I broker premiano la qualità più della quantità.</p>
+     <p><b>Cosa puoi chiedere:</b> rebate più alto o a scaglioni, CPA maggiore per alcuni paesi, pagamenti più frequenti, un referente dedicato, un contributo per eventi o campagne, materiali personalizzati, condizioni migliori per i tuoi clienti.</p>
+     <p><b>Come chiederlo:</b> con i tuoi numeri degli ultimi tre mesi e una proposta precisa. Una richiesta generica riceve una risposta generica.</p>
+     <p><b>Avere un'alternativa:</b> conoscere le condizioni di altri broker rende la trattativa concreta. Senza trasformarla in un ricatto: i rapporti lunghi rendono di più.</p>
+     <p>Ogni accordo va confermato per iscritto, con decorrenza e durata.</p>`,
+  tip:"Chiedere condizioni migliori per i tuoi clienti, non solo per te, è spesso la richiesta che il broker accoglie più volentieri.",
+  q:"Qual è l'argomento più forte in una trattativa con il broker?", o:["Il numero di follower","La qualità e la durata dei clienti portati","L'anzianità dell'account"], a:1,
+  e:"Clienti attivi e duraturi sono ciò che il broker paga più volentieri."},
+
+ /* ===== LIVELLO 7 · REGOLE ===== */
+ {lv:7, t:"Le tutele per i clienti al dettaglio", min:6,
+  h:`<p>Nell'Unione Europea l'offerta di CFD ai clienti al dettaglio è soggetta a misure introdotte dall'ESMA nel 2018 e poi adottate dalle autorità nazionali, in Italia dalla CONSOB.</p>
+     <div class="scroll"><table>
+     <tr><th>Misura</th><th>Contenuto</th></tr>
+     <tr><td>Limiti di leva</td><td>30:1 principali coppie valutarie; 20:1 valute minori, oro, principali indici; 10:1 altre materie prime e indici minori; 5:1 singole azioni; 2:1 criptovalute.</td></tr>
+     <tr><td>Chiusura automatica</td><td>Al 50% del margine richiesto.</td></tr>
+     <tr><td>Saldo negativo</td><td>Il cliente non può perdere più di quanto ha versato.</td></tr>
+     <tr><td>Incentivi</td><td>Vietati bonus e incentivi all'operatività.</td></tr>
+     <tr><td>Avvertenza di rischio</td><td>Standardizzata, con la percentuale di conti al dettaglio in perdita presso quel broker.</td></tr>
+     </table></div>
+     <p>I broker con licenza fuori dall'UE offrono spesso leve più alte e bonus, ma con tutele minori e limiti sui paesi in cui possono operare.</p>
+     <p>Indirizzare un cliente europeo verso un'entità offshore per aggirare questi limiti è una pratica che le autorità contestano.</p>`,
+  tip:"Verifica sempre sotto quale entità e licenza viene aperto il conto del tuo cliente: cambia le sue tutele.",
+  q:"Qual è la leva massima per un cliente al dettaglio UE sulle principali coppie valutarie?", o:["30:1","100:1","500:1"], a:0,
+  e:"Il limite è 30:1 sulle principali coppie valutarie."},
+ {lv:7, t:"Clienti al dettaglio e clienti professionali", min:5,
+  h:`<p>La normativa europea distingue i clienti in base all'esperienza, e le tutele cambiano di conseguenza.</p>
+     <p><b>Cliente al dettaglio:</b> la categoria di partenza, con tutte le protezioni.</p>
+     <p><b>Cliente professionale su richiesta:</b> può chiederlo chi soddisfa almeno due criteri su tre: operazioni di dimensioni significative con frequenza media di dieci a trimestre nell'ultimo anno; portafoglio finanziario superiore a 500.000 €; almeno un anno di lavoro nel settore finanziario in un ruolo che richiede conoscenza di questi strumenti.</p>
+     <p><b>Cosa cambia:</b> leva più alta, ma meno protezioni. Possono venire meno i limiti di leva, la protezione dal saldo negativo e l'accesso ai fondi di indennizzo.</p>
+     <p><b>Il ruolo dell'IB:</b> non suggerire mai a un cliente di chiedere la qualifica professionale per avere più leva, né aiutarlo a dichiarare requisiti che non ha. La richiesta e la valutazione spettano al cliente e al broker.</p>`,
+  tip:"Se un cliente ti chiede «come faccio ad avere più leva», la risposta corretta è spiegare cosa perderebbe.",
+  q:"Quanti criteri su tre servono per chiedere la qualifica di cliente professionale?", o:["Uno","Due","Tutti e tre"], a:1,
+  e:"Servono almeno due dei tre criteri previsti, valutati dal broker."},
+ {lv:7, t:"Cosa non deve fare un IB", min:5,
+  h:`<p>Sette divieti da tenere a mente.</p>
+     <p>1. Promettere o lasciar intendere guadagni.</p>
+     <p>2. Dare raccomandazioni personalizzate su cosa comprare o vendere, senza autorizzazione.</p>
+     <p>3. Ricevere o gestire denaro dei clienti.</p>
+     <p>4. Operare sul conto di un cliente o farsi dare le sue credenziali.</p>
+     <p>5. Omettere le avvertenze di rischio o nascondere il rapporto economico con il broker.</p>
+     <p>6. Promuovere il broker in paesi dove non è autorizzato.</p>
+     <p>7. Compilare al posto del cliente il questionario di adeguatezza o i documenti di apertura.</p>
+     <p>Anche i compensi sono regolati: in alcune giurisdizioni i pagamenti legati ai volumi o alle perdite dei clienti al dettaglio sono limitati o vietati. Chiedi conferma alla compliance del broker.</p>`,
+  tip:"Nel dubbio, chiedi alla compliance prima di pubblicare. Costa una email; l'errore può costare il contratto.",
+  q:"Un IB può incassare il deposito del cliente per girarlo al broker?", o:["Sì, se rilascia ricevuta","No, mai","Solo sotto una certa cifra"], a:1,
+  e:"L'IB non deve mai ricevere o gestire denaro dei clienti: i fondi vanno direttamente al broker."},
+ {lv:7, t:"Comunicare in modo corretto", min:5,
+  h:`<p>Una comunicazione corretta protegge i clienti e la tua attività.</p>
+     <p><b>Avvertenza di rischio:</b> sempre presente e ben visibile, con la percentuale di conti al dettaglio in perdita indicata dal broker.</p>
+     <p><b>Trasparenza:</b> dichiara che ricevi un compenso dal broker quando presenti un cliente. Sui social vale anche per storie e video brevi.</p>
+     <p><b>Equilibrio:</b> se mostri un risultato positivo, mostra anche il rischio. Niente schermate di profitti isolati, niente stili di vita come promessa.</p>
+     <p><b>Parole da evitare:</b> «garantito», «senza rischio», «rendita», «soldi facili», «recupera le perdite».</p>
+     <p><b>Materiali:</b> usa quelli approvati dal broker e fai validare i tuoi prima di pubblicarli. Il broker risponde davanti all'autorità anche di ciò che dicono i suoi partner, e per questo può chiederti di rimuovere un contenuto.</p>`,
+  tip:"Chi spiega bene i rischi viene ascoltato più a lungo di chi promette risultati.",
+  q:"Quando va dichiarato il compenso che ricevi dal broker?", o:["Mai","Solo se il cliente lo chiede","Sempre, quando presenti il broker"], a:2,
+  e:"La trasparenza sul rapporto economico è parte di una comunicazione corretta."},
+ {lv:7, t:"Verifica dell'identità, antiriciclaggio e riservatezza", min:6,
+  h:`<p><b>Verifica dell'identità (KYC):</b> il broker deve identificare ogni cliente con un documento e una prova di residenza, e valutare con un questionario se il prodotto è adatto a lui. È un obbligo del broker, non dell'IB.</p>
+     <p><b>Antiriciclaggio:</b> il broker controlla l'origine dei fondi. I depositi devono arrivare da conti o carte intestati al cliente, e i prelievi tornano di norma allo stesso canale. I pagamenti da terzi vengono respinti.</p>
+     <p><b>Cosa può fare l'IB:</b> spiegare quali documenti servono e perché. Non raccoglierli, non inviarli al posto del cliente, non conservarli.</p>
+     <p><b>Dati personali:</b> se gestisci una lista di contatti sei tu il titolare di quei dati. Nella UE servono informativa, consenso per le comunicazioni commerciali, misure di sicurezza e risposta alle richieste di cancellazione.</p>
+     <p><b>Segnalazioni:</b> se sospetti che un cliente usi documenti falsi o conti di altri, avvisa il broker. Tacere ti espone.</p>`,
+  tip:"Non chiedere mai a un cliente di mandarti una copia del documento «per aiutarlo»: non ti serve e ti crea solo responsabilità.",
+  q:"Chi è obbligato a verificare l'identità del cliente?", o:["L'IB","Il broker","Il fornitore della piattaforma"], a:1,
+  e:"La verifica dell'identità è un obbligo di legge del broker."},
+
+ {lv:7, t:"Broker offshore: cosa può e non può fare un IB", min:7,
+  h:`<p>Le entità offshore pagano spesso compensi più alti, e i loro clienti generano più volume per via della leva. Proprio per questo è il terreno su cui un IB rischia di più.</p>
+     <p><b>La regola di base:</b> conta dove risiede il cliente, non dove ha sede il broker. Per offrire o promuovere servizi di investimento ai residenti di un paese serve, di norma, essere autorizzati in quel paese.</p>
+     <p><b>Nella UE:</b> un'entità offshore non autorizzata non può rivolgersi ai clienti al dettaglio europei. Promuoverla a residenti UE significa partecipare a un'offerta non autorizzata. In diversi paesi, tra cui l'Italia, l'offerta abusiva di servizi di investimento è un reato, e la CONSOB ordina regolarmente l'oscuramento dei siti di operatori non autorizzati.</p>
+     <p><b>L'iniziativa del cliente:</b> la normativa europea ammette che un cliente si rivolga di propria esclusiva iniziativa a un'impresa di un paese terzo. È un'eccezione stretta: se c'è stata promozione, anche tramite un IB, un sito in lingua locale o un influencer, non si applica. Non è una scappatoia per chi fa marketing.</p>
+     <p><b>Cosa non fare:</b> suggerire a un cliente europeo di aprire il conto presso l'entità offshore «per avere più leva»; aiutarlo a indicare una residenza diversa; consigliare VPN o documenti di comodo; presentare l'entità offshore citando la licenza europea del gruppo.</p>
+     <p><b>Dove si può lavorare con entità offshore:</b> con clienti residenti in paesi in cui quell'entità è ammessa a operare, secondo le regole locali. Molti paesi di Asia, Africa, America Latina e Medio Oriente hanno però proprie autorità e proprie restrizioni: la verifica va fatta paese per paese, e il broker deve fornirti l'elenco dei paesi accettati e di quelli esclusi.</p>
+     <p><b>Trasparenza verso il cliente:</b> anche dove è lecito, spiega con quale entità firma, quali tutele non ha (fondo di indennizzo, protezione dal saldo negativo garantita per legge) e cosa comporta la leva alta.</p>
+     <p><b>Per la tua attività:</b> i conti a leva molto alta si esauriscono più in fretta. Volumi alti nei primi mesi e clienti che spariscono non sono una base solida per chi vive di rebate.</p>`,
+  tip:"Chiedi al broker, per iscritto, l'elenco dei paesi in cui puoi promuovere ciascuna entità. Se non te lo dà, è già una risposta.",
+  q:"Per stabilire se puoi promuovere un broker a una persona, cosa conta di più?", o:["La sede del broker","Il paese di residenza del cliente","La piattaforma usata"], a:1,
+  e:"Le regole applicabili sono quelle del paese in cui risiede il cliente."},
+
+ /* ===== LIVELLO 8 · AVANZATO ===== */
+ {lv:8, t:"Copy trading, PAMM e MAM", min:6,
+  h:`<p>Sono tre modi per far operare più conti seguendo le decisioni di un solo trader.</p>
+     <p><b>Copy trading:</b> il cliente sceglie un trader da seguire e le operazioni vengono replicate sul suo conto, in proporzione.</p>
+     <p><b>PAMM:</b> i fondi di più investitori confluiscono in un conto gestito; profitti e perdite sono ripartiti per quota.</p>
+     <p><b>MAM:</b> il gestore opera da un conto principale e gli ordini vengono distribuiti sui conti dei clienti, anche con parametri diversi.</p>
+     <p><b>Compenso del gestore:</b> di solito una commissione sui profitti, a volte una commissione fissa o sui volumi.</p>
+     <p><b>Il punto regolamentare:</b> nella UE la replica automatica delle operazioni è in generale considerata gestione di portafogli, attività che richiede un'autorizzazione. Presentare un servizio di copia offerto dal broker è diverso dal gestire tu il denaro altrui.</p>
+     <p>Per l'IB questi servizi aumentano la permanenza dei clienti, ma legano la tua reputazione ai risultati di un trader.</p>`,
+  tip:"Se promuovi un trader da copiare, mostra anche i suoi periodi peggiori. Il cliente li vivrà comunque.",
+  q:"Nella UE, la replica automatica delle operazioni è in generale considerata…", o:["Semplice formazione","Gestione di portafogli","Pubblicità"], a:1,
+  e:"La replica automatica è trattata in generale come gestione di portafogli e richiede autorizzazione."},
+ {lv:8, t:"White label e partner regionali", min:5,
+  h:`<p>Sono i gradini successivi per chi ha già una rete solida.</p>
+     <p><b>Partner regionale:</b> rappresenta il broker in un paese o in un'area, spesso con un ufficio, personale locale e sub-IB. Riceve condizioni migliori e a volte un contributo alle spese, in cambio di obiettivi di volume.</p>
+     <p><b>White label:</b> offri il servizio di trading con il tuo marchio, usando piattaforma, liquidità e struttura di un broker. Trattieni una parte maggiore dei ricavi, ma sostieni costi fissi e responsabilità molto più ampie.</p>
+     <p><b>Licenza:</b> un marchio proprio non sostituisce un'autorizzazione. Chi offre servizi di investimento sotto il proprio nome deve verificare con un legale quale licenza serve nei paesi in cui opera.</p>
+     <p><b>Prima di salire di livello:</b> servono volumi stabili, un'organizzazione, capitale per almeno un anno di costi e una consulenza legale seria.</p>`,
+  tip:"Molti IB guadagnano di più restando IB ben pagati che diventando white label sottocapitalizzati.",
+  q:"Che cosa comporta una white label rispetto al ruolo di IB?", o:["Meno responsabilità","Costi fissi e responsabilità maggiori","Nessun contratto"], a:1,
+  e:"Con il proprio marchio aumentano ricavi potenziali, costi fissi e obblighi."},
+ {lv:8, t:"Prop firm e altri programmi di affiliazione", min:5,
+  h:`<p>Chi ha un pubblico di trader può promuovere anche servizi diversi dal broker.</p>
+     <p><b>Prop firm:</b> società che vendono prove di valutazione a pagamento; chi le supera opera con capitale della società e trattiene una quota dei profitti. I programmi di affiliazione pagano di solito una percentuale del prezzo della prova. Non sono broker e in molti paesi non hanno una regolamentazione specifica: la solidità varia molto da una società all'altra.</p>
+     <p><b>Altri programmi:</b> piattaforme di analisi grafica, strumenti e software, corsi, servizi di dati, scambi di criptovalute.</p>
+     <p><b>Vantaggi:</b> diversifichi le entrate e offri al tuo pubblico strumenti utili.</p>
+     <p><b>Attenzioni:</b> controlla le clausole di esclusiva del contratto con il broker, non riempire il pubblico di offerte, e promuovi solo ciò che hai provato.</p>`,
+  tip:"Ogni nuovo programma che promuovi consuma una parte della fiducia del tuo pubblico. Scegli pochi partner e affidabili.",
+  q:"Su cosa pagano di solito i programmi di affiliazione delle prop firm?", o:["Sui lotti negoziati","Su una percentuale del prezzo della prova","Sulle perdite dei trader"], a:1,
+  e:"Il compenso è in genere una quota del prezzo pagato per la prova di valutazione."},
+ {lv:8, t:"Traffico vietato e frodi", min:6,
+  h:`<p>I broker controllano la qualità del traffico con strumenti automatici. Queste pratiche portano alla chiusura dell'account e alla perdita dei compensi.</p>
+     <div class="scroll"><table>
+     <tr><th>Pratica</th><th>In cosa consiste</th></tr>
+     <tr><td>Autoreferenza</td><td>Aprire conti propri o di familiari sotto il proprio link.</td></tr>
+     <tr><td>Operazioni artificiose</td><td>Aprire e chiudere posizioni al solo scopo di generare rebate.</td></tr>
+     <tr><td>Coperture incrociate</td><td>Posizioni opposte su conti collegati per produrre volume senza rischio.</td></tr>
+     <tr><td>Abuso di bonus</td><td>Conti multipli o fittizi per incassare promozioni.</td></tr>
+     <tr><td>Traffico incentivato</td><td>Pagare o premiare le persone perché si registrino o depositino.</td></tr>
+     <tr><td>Invii indesiderati</td><td>Messaggi di massa senza consenso.</td></tr>
+     <tr><td>Abuso del marchio</td><td>Annunci sul nome del broker, domini simili, pagine che lo imitano.</td></tr>
+     <tr><td>Recensioni false</td><td>Giudizi inventati o comprati.</td></tr>
+     </table></div>
+     <p>Per questo molti contratti escludono dal rebate le operazioni chiuse entro pochi minuti.</p>
+     <p>Se un cliente o un sub-IB adotta queste pratiche, segnalalo tu per primo al broker.</p>`,
+  tip:"Se un metodo per aumentare i compensi ti sembra un trucco, lo è, e il broker lo ha già visto.",
+  q:"Che cos'è l'autoreferenza?", o:["Citare sé stessi in un articolo","Aprire conti propri o di familiari sotto il proprio link","Usare un sub-ID"], a:1,
+  e:"È la registrazione di conti propri o collegati per incassare compensi: i contratti la vietano."},
+ {lv:8, t:"Costruire un'attività che dura", min:6,
+  h:`<p>Un piano semplice, seguito con costanza, batte qualsiasi scorciatoia.</p>
+     <p>1. <b>Scegli una nicchia:</b> un pubblico preciso, una lingua, un livello di esperienza.</p>
+     <p>2. <b>Uno o due canali:</b> meglio farne bene uno che male cinque.</p>
+     <p>3. <b>Uno o due broker</b> che hai provato, con licenza adatta al tuo pubblico.</p>
+     <p>4. <b>Un appuntamento fisso</b> con il tuo pubblico, ogni settimana.</p>
+     <p>5. <b>Tre indicatori</b> da guardare ogni lunedì.</p>
+     <p>6. <b>Una regola di conformità:</b> avvertenza di rischio, trasparenza, nessuna promessa.</p>
+     <p>7. <b>Una revisione trimestrale</b> di numeri, condizioni e contratto.</p>
+     <p><b>Aspettative realistiche:</b> i primi mesi rendono poco. Chi lavora a rebate vede crescere le entrate per accumulo, mese dopo mese. Non dipendere da un solo broker né da un solo canale: entrambi possono cambiare le regole.</p>`,
+  tip:"Tra un anno conterà quante persone si fidano di te, non quanti link hai pubblicato.",
+  q:"Perché è rischioso dipendere da un solo broker e da un solo canale?", o:["Perché rende meno","Perché entrambi possono cambiare le regole","Perché è vietato"], a:1,
+  e:"Condizioni e regole delle piattaforme cambiano: diversificare protegge l'attività."}
+];
+
+var TEST = [
+ {q:"Che cosa fa un Introducing Broker?", o:["Esegue gli ordini dei clienti","Presenta clienti a un broker in cambio di un compenso","Custodisce i fondi dei clienti","Non lo so"], a:1},
+ {q:"Su EUR/USD, quanto vale circa un pip per un lotto standard?", o:["1 $","10 $","100 $","Non lo so"], a:1},
+ {q:"Lo spread è…", o:["Il costo notturno di una posizione","La differenza tra prezzo di acquisto e di vendita","Il deposito minimo","Non lo so"], a:1},
+ {q:"In un broker B-book, chi è la controparte del cliente?", o:["Un fornitore di liquidità","Il broker stesso","L'IB","Non lo so"], a:1},
+ {q:"Il CPA è un compenso…", o:["Ricorrente per lotto","Una tantum per cliente qualificato","In percentuale sui prelievi","Non lo so"], a:1},
+ {q:"In un accordo di revenue share, il «riporto negativo» è…", o:["Un bonus di fine anno","Il saldo negativo di un mese portato al mese successivo","Una penale per recesso","Non lo so"], a:1},
+ {q:"Nel funnel di acquisizione, FTD indica…", o:["Il primo deposito del cliente","Il primo clic sul link","La verifica dell'identità","Non lo so"], a:0},
+ {q:"Il brand bidding è…", o:["Una tecnica di analisi grafica","Fare offerte sul nome del broker negli annunci di ricerca","Un tipo di rebate","Non lo so"], a:1},
+ {q:"A cosa serve un sub-ID in un link tracciato?", o:["A verificare l'identità","A distinguere la campagna di provenienza","Ad aumentare il compenso","Non lo so"], a:1},
+ {q:"Un sub-IB è…", o:["Un cliente con conto piccolo","Un IB reclutato da un altro IB","Un dipendente del broker","Non lo so"], a:1},
+ {q:"Il valore nel tempo di un cliente (LTV) si stima con…", o:["Compenso mensile medio × mesi di attività","Deposito iniziale × leva","Clic ÷ registrazioni","Non lo so"], a:0},
+ {q:"Il costo di acquisizione di un cliente è…", o:["Lo spread medio pagato","La spesa totale divisa per i nuovi clienti attivi","Il CPA offerto dal broker","Non lo so"], a:1},
+ {q:"Leva massima per clienti al dettaglio UE sulle principali coppie valutarie:", o:["30:1","200:1","500:1","Non lo so"], a:0},
+ {q:"Un IB può promettere un rendimento mensile ai clienti?", o:["Sì, se è prudente","Sì, con un contratto","No, mai","Non lo so"], a:2},
+ {q:"In un conto PAMM…", o:["Il cliente opera da solo","I fondi di più investitori sono gestiti da un trader e i risultati ripartiti per quota","Il broker garantisce il capitale","Non lo so"], a:1},
+ {q:"L'autoreferenza è…", o:["Aprire conti propri o di familiari sotto il proprio link","Citare le fonti","Un modello di compenso","Non lo so"], a:0}
+];
+
+var GLOSS = [
+ ["A-book","Modello in cui il broker passa gli ordini a fornitori di liquidità esterni."],
+ ["Affiliate manager","Referente del broker che segue i partner: condizioni, materiali, problemi."],
+ ["Affiliato","Partner che porta traffico e registrazioni online, di solito pagato a CPA."],
+ ["Antiriciclaggio (AML)","Controlli sull'origine dei fondi e sull'identità dei clienti, a carico del broker."],
+ ["Attribuzione","Regola che stabilisce a quale partner viene assegnato un cliente."],
+ ["B-book","Modello in cui il broker è controparte diretta del cliente."],
+ ["Brand bidding","Fare offerte sul nome del broker negli annunci di ricerca; di norma vietato dal contratto."],
+ ["CAC","Costo di acquisizione di un cliente: spesa totale divisa per i nuovi clienti attivi."],
+ ["Cashback","Parte del rebate girata al cliente. Nella UE può costituire un incentivo vietato."],
+ ["CFD","Contratto per differenza: derivato che replica il prezzo di un bene senza possederlo."],
+ ["Clawback","Restituzione di un compenso già pagato, in caso di frode o storno."],
+ ["Cliente al dettaglio","Categoria di partenza dei clienti, con il livello massimo di tutela."],
+ ["Cliente professionale","Cliente con esperienza e patrimonio qualificati; ha meno protezioni."],
+ ["Conto cent","Conto con saldo espresso in centesimi, per importi piccoli."],
+ ["Conto swap-free","Conto senza interessi notturni."],
+ ["Cookie","File nel browser che conserva per un certo periodo l'associazione tra visitatore e partner."],
+ ["Copy trading","Replica automatica sul proprio conto delle operazioni di un altro trader."],
+ ["CPA","Cost Per Acquisition: compenso una tantum per cliente qualificato."],
+ ["CPL","Cost Per Lead: compenso per ogni contatto o registrazione valida."],
+ ["ECN / Raw","Conto con spread ridotto e commissione fissa per lotto."],
+ ["ESMA","Autorità europea degli strumenti finanziari e dei mercati."],
+ ["Fondi segregati","Denaro dei clienti tenuto separato da quello del broker."],
+ ["Fondo di indennizzo","Sistema che risarcisce i clienti, entro un massimale, se il broker fallisce."],
+ ["FTD","First Time Deposit: il primo deposito di un nuovo cliente."],
+ ["Funnel","Sequenza di passaggi da visitatore a cliente attivo."],
+ ["Ibrido","Modello che unisce un CPA ridotto e un compenso ricorrente ridotto."],
+ ["IB","Introducing Broker: chi presenta clienti a un broker in cambio di un compenso."],
+ ["KYC","Know Your Customer: verifica dell'identità del cliente, a carico del broker."],
+ ["Leva","Rapporto tra valore della posizione e margine versato."],
+ ["Lotto","Unità di volume. Nel forex un lotto standard vale 100.000 unità della valuta base."],
+ ["LTV","Valore di un cliente nel tempo: quanto rende in totale finché resta attivo."],
+ ["MAM","Sistema con cui un gestore distribuisce gli ordini su più conti di clienti."],
+ ["Margine","Somma bloccata a garanzia di una posizione aperta."],
+ ["Market maker","Broker che fa da controparte alle operazioni dei clienti."],
+ ["Markup","Maggiorazione aggiunta allo spread."],
+ ["Master IB","IB al vertice di una rete di sub-IB."],
+ ["Network di affiliazione","Intermediario che collega molti inserzionisti e molti partner."],
+ ["PAMM","Conto gestito in cui confluiscono i fondi di più investitori, con risultati ripartiti per quota."],
+ ["Pagina di atterraggio","Pagina con un solo obiettivo a cui arriva chi clicca su un annuncio o un link."],
+ ["Pip","Variazione minima convenzionale del prezzo di una coppia valutaria."],
+ ["Postback","Notifica automatica da server a server di registrazioni e depositi."],
+ ["Prop firm","Società che fa operare trader selezionati con il proprio capitale, dopo una prova a pagamento."],
+ ["Qualifica","Requisiti che un cliente deve raggiungere perché il CPA venga pagato."],
+ ["Rebate","Compenso ricorrente per lotto negoziato dai clienti presentati."],
+ ["Requote","Nuovo prezzo proposto dal broker al posto dell'esecuzione dell'ordine."],
+ ["Revenue share","Percentuale dei ricavi netti che il broker ottiene dai clienti del partner."],
+ ["Riporto negativo","Saldo negativo di un mese portato in detrazione al mese successivo."],
+ ["Slippage","Differenza tra prezzo richiesto e prezzo di esecuzione."],
+ ["Spread","Differenza tra prezzo di acquisto e prezzo di vendita."],
+ ["STP","Esecuzione in cui gli ordini vengono inoltrati ai fornitori di liquidità."],
+ ["Sub-IB","IB reclutato da un altro IB, che riceve una quota dei suoi compensi."],
+ ["Sub-ID","Parametro del link che identifica la campagna o il contenuto di provenienza."],
+ ["Swap","Costo o accredito per le posizioni tenute aperte oltre la giornata."],
+ ["Tier","Fascia in cui sono raggruppati i paesi ai fini dell'importo del CPA."],
+ ["White label","Servizio di trading offerto con il proprio marchio sull'infrastruttura di un broker."],
+ ["Leva effettiva","Rapporto tra il valore delle posizioni aperte e il saldo del conto."],
+ ["Leva dinamica","Leva che il broker riduce al crescere del saldo o del volume, o in momenti di rischio."],
+ ["Margin call","Avviso del broker quando il margine disponibile scende sotto una soglia."],
+ ["Offshore","Giurisdizione con regole più leggere; per estensione, i broker o le entità autorizzati lì."],
+ ["Sollecitazione inversa","Richiesta partita dall'esclusiva iniziativa del cliente verso un'impresa di un paese terzo; eccezione stretta."],
+ ["Stop out","Chiusura automatica delle posizioni quando il margine scende sotto il livello minimo."]
+];
+GLOSS.sort(function(a, b){ return a[0].localeCompare(b[0], "it"); });
+
+var FAQ = [
+ ["Serve una licenza o autorizzazione per fare l'IB?","Dipende dal paese e da cosa fai in concreto. La semplice presentazione può non richiederla, ma consulenza, gestione e promozione attiva sono spesso attività riservate. Va verificato caso per caso con la compliance del broker o con un consulente legale."],
+ ["Posso cambiare modello di compenso dopo aver iniziato?","Di solito sì, ma solo per i nuovi clienti: quelli già presentati restano legati al modello con cui sono entrati."],
+ ["Per quanto tempo ricevo il rebate su un cliente?","Lo stabilisce il contratto. Alcuni broker lo riconoscono a vita, altri per un periodo limitato o solo finché l'IB resta attivo."],
+ ["Meglio CPA o rebate per chi comincia?","Chi ha una community fedele tende a guadagnare di più con il rebate. Chi investe in pubblicità ha bisogno del CPA per rientrare dei costi. Il calcolatore aiuta a stimarlo con i propri numeri."],
+ ["Quanto si guadagna come IB?","Non esiste una cifra tipica. Dipende da quanti clienti attivi hai, da quanto operano e da quanto restano. I primi mesi rendono poco; con il rebate le entrate crescono per accumulo. Usa il calcolatore con stime prudenti."],
+ ["Posso lavorare con più broker contemporaneamente?","Sì, se il contratto non prevede esclusiva. Avere due broker riduce la dipendenza da uno solo, ma troppi partner confondono il pubblico."],
+ ["Posso essere cliente del broker di cui sono IB?","Di norma sì, ma il tuo conto personale e quelli di familiari o persone collegate non generano compensi. Aprirli sotto il tuo link è considerato autoreferenza."],
+ ["Cosa succede ai miei clienti se chiudo il rapporto con il broker?","Lo dice la clausola sulla cessazione. In alcuni contratti i compensi sui clienti già portati continuano, in altri cessano subito. I clienti restano comunque clienti del broker."],
+ ["Posso aiutare un cliente ad aprire il conto?","Puoi spiegare i passaggi e i documenti richiesti. Non puoi compilare i moduli o il questionario al suo posto, né ricevere i suoi documenti o le sue credenziali."],
+ ["Posso offrire un bonus o un regalo a chi apre un conto dal mio link?","Premiare registrazioni e depositi è traffico incentivato, vietato dalla maggior parte dei contratti, e nella UE gli incentivi all'operatività sono proibiti. Chiedi prima alla compliance del broker."],
+ ["Come dichiaro i compensi ricevuti?","I compensi sono redditi da dichiarare, ma forma giuridica e trattamento fiscale dipendono dal paese e dai volumi. Va definito con un commercialista prima di iniziare."],
+ ["Posso promuovere un broker offshore a clienti italiani o europei?","No. Un'entità offshore non autorizzata nella UE non può rivolgersi ai clienti al dettaglio europei, e promuoverla significa partecipare a un'offerta non autorizzata. In Italia l'offerta abusiva di servizi di investimento è un reato. Conta la residenza del cliente, non la sede del broker."],
+ ["Cosa significa leva 1:500?","Che con 1 di margine si controlla una posizione di 500: per un lotto da 100.000 $ bastano circa 200 $. Un movimento contrario di 20 pip equivale all'intero margine. La leva è un massimo disponibile: il rischio reale dipende da quanto è grande la posizione rispetto al conto."],
+ ["Che differenza c'è tra rebate e revenue share?","Il rebate è un importo per lotto negoziato, facile da verificare. La revenue share è una percentuale dei ricavi netti del broker sui tuoi clienti: dipende da come il contratto definisce quei ricavi ed è meno prevedibile."]
+];
+
+/* ---------- stato ---------- */
+var state = {level:0, done:{}};
+try { var s = JSON.parse(localStorage.getItem("accademiaIB3")); if (s && s.done) state = s; } catch(e){}
+function save(){ try { localStorage.setItem("accademiaIB3", JSON.stringify(state)); } catch(e){} }
+function $(id){ return document.getElementById(id); }
+function doneCount(){ var n = 0; for (var i = 0; i < LESSONS.length; i++) if (state.done[i]) n++; return n; }
+
+/* ---------- navigazione ---------- */
+function go(v){
+  var views = document.querySelectorAll(".view");
+  for (var i = 0; i < views.length; i++) views[i].hidden = views[i].id !== v;
+  var nb = document.querySelectorAll("nav button");
+  for (var j = 0; j < nb.length; j++) nb[j].className = (nb[j].getAttribute("data-go") === v || (v === "lesson" && nb[j].getAttribute("data-go") === "path")) ? "on" : "";
+  if (v === "home") renderHome();
+  if (v === "test") startTest();
+  if (v === "path") renderPath();
+  if (v === "manual") renderManual();
+  if (v !== "lesson") curLesson = null;
+  if (!$("chat").hidden) renderChips();
+  window.scrollTo(0, 0);
+}
+document.addEventListener("click", function(ev){
+  var b = ev.target.closest("[data-go]");
+  if (b) go(b.getAttribute("data-go"));
+});
+
+/* ---------- home ---------- */
+function renderHome(){
+  var d = doneCount(), cta = "", prog = "";
+  if (state.level){
+    cta = '<button class="btn" data-go="path">' + (d ? "Continua il percorso →" : "Apri il tuo percorso →") + '</button><button class="btn ghost" data-go="test">Rifai il test</button>';
+    prog = '<p class="small" style="margin-top:16px">Il tuo livello: <b>' + state.level + ' su ' + LEVELS.length + ', ' + LEVELS[state.level-1] + '</b> · ' + d + (d === 1 ? ' lezione completata su ' : ' lezioni completate su ') + LESSONS.length + '</p>';
+  } else {
+    cta = '<button class="btn" data-go="test">Fai il test di livello →</button><button class="btn ghost" data-go="path">Vai al percorso</button>';
+    if (d) prog = '<p class="small" style="margin-top:16px">' + d + (d === 1 ? ' lezione completata su ' : ' lezioni completate su ') + LESSONS.length + '</p>';
   }
-  ids.forEach(function(id){ document.getElementById(id).addEventListener('input', calc); });
-  calc();
+  $("homeCta").innerHTML = cta;
+  $("homeProg").innerHTML = prog;
+  if (!$("homeArt").innerHTML) $("homeArt").innerHTML = art(0);
+}
+
+/* ---------- test ---------- */
+var ti = 0, score = 0;
+function startTest(){ ti = 0; score = 0; renderTest(); }
+function renderTest(){
+  var box = $("testBox");
+  if (ti >= TEST.length){
+    var lv = Math.min(LEVELS.length, Math.floor(score / 2) + 1);
+    state.level = lv; save();
+    box.innerHTML = '<span class="pill">Test di livello</span>' +
+      '<h1>Il tuo livello è <em>' + lv + ' su ' + LEVELS.length + ', ' + LEVELS[lv-1] + '</em></h1>' +
+      '<p class="sub">Risposte corrette: ' + score + ' su ' + TEST.length + '.</p>' +
+      '<p>Il percorso parte già da qui, con le lezioni nell\'ordine giusto per te. I livelli precedenti restano aperti se vuoi ripassare.</p>' +
+      '<div class="row"><button class="btn" data-go="path">Apri il tuo percorso →</button><button class="btn ghost" id="redo">Rifai il test</button></div>';
+    $("redo").onclick = startTest;
+    return;
+  }
+  var t = TEST[ti], h = '<span class="pill">Test di livello</span>' +
+    '<div class="prog" style="margin-top:16px"><div style="width:' + (ti / TEST.length * 100) + '%"></div></div>' +
+    '<span class="small">Domanda ' + (ti + 1) + ' di ' + TEST.length + '</span>' +
+    '<h2 style="margin-top:12px">' + t.q + '</h2>';
+  for (var i = 0; i < t.o.length; i++) h += '<button class="opt" data-i="' + i + '">' + t.o[i] + '</button>';
+  box.innerHTML = h;
+  var os = box.querySelectorAll(".opt");
+  for (var k = 0; k < os.length; k++) os[k].onclick = function(){
+    if (+this.getAttribute("data-i") === TEST[ti].a) score++;
+    ti++; renderTest();
+  };
+}
+
+/* ---------- percorso ---------- */
+function renderPath(){
+  var d = doneCount();
+  $("pathTitle").innerHTML = state.level
+    ? 'Livello <em>' + state.level + ' su ' + LEVELS.length + ', ' + LEVELS[state.level-1] + '</em>'
+    : LESSONS.length + ' lezioni, <em>otto livelli</em>';
+  $("pathBar").style.width = (d / LESSONS.length * 100) + "%";
+  var cur = 0, tr = "";
+  for (var a = LEVELS.length; a >= 1; a--) if (!lvlFull(a) && (a >= (state.level || 1) || !cur)) cur = a;
+  for (var b = 1; b <= LEVELS.length; b++) tr += '<div class="stp' + (lvlFull(b) ? ' full' : b === cur ? ' cur' : '') + '"><i>' + (lvlFull(b) ? '✓' : b) + '</i><span>' + LEVELS[b-1] + '</span></div>';
+  $("track").innerHTML = tr;
+  $("pathCount").textContent = d + (d === 1 ? " lezione completata su " : " lezioni completate su ") + LESSONS.length;
+  var h = "";
+  for (var lv = 1; lv <= LEVELS.length; lv++){
+    h += '<div class="panel lvl"><div class="lvlh"><b>Livello ' + lv + ' · ' + LEVELS[lv-1] + '</b>' +
+         (state.level === lv ? '<span class="badge">Parti da qui</span>' : '') + '</div>';
+    for (var i = 0; i < LESSONS.length; i++){
+      if (LESSONS[i].lv !== lv) continue;
+      h += '<button class="lesson' + (state.done[i] ? ' done' : '') + '" data-l="' + i + '"><span class="ck">' + (state.done[i] ? '✓' : '') +
+           '</span><span class="t">' + LESSONS[i].t + '</span><span class="small">' + LESSONS[i].min + ' min</span></button>';
+    }
+    h += '</div>';
+  }
+  if (!state.level) h += '<div class="tip"><div class="av">IB</div><div class="bub"><small>Il consiglio dell\'Accademia</small>Se non sai da dove partire, fai il test: in cinque minuti scopri il tuo livello.</div></div>';
+  $("pathList").innerHTML = h;
+  var ls = $("pathList").querySelectorAll(".lesson");
+  for (var k = 0; k < ls.length; k++) ls[k].onclick = function(){ openLesson(+this.getAttribute("data-l")); };
+}
+
+/* ---------- lezione ---------- */
+function openLesson(i){
+  var L = LESSONS[i];
+  var h = '<button class="back" data-go="path">← Torna al percorso</button><br>' +
+    '<span class="pill">Livello ' + L.lv + ' · ' + LEVELS[L.lv-1] + ' · ' + L.min + ' min</span>' +
+    '<h2 style="margin:14px 0 14px;font-size:28px">' + L.t + '</h2>' + art(L.lv) + L.h +
+    '<div class="tip"><div class="av">IB</div><div class="bub"><small>Il consiglio dell\'Accademia</small>' + L.tip + '</div></div>' +
+    '<h3>Verifica</h3><p><b>' + L.q + '</b></p>';
+  for (var k = 0; k < L.o.length; k++) h += '<button class="opt" data-i="' + k + '">' + L.o[k] + '</button>';
+  h += '<p class="fb" id="fb"></p><div class="row" style="margin-top:16px">' +
+       '<button class="btn" id="fin">' + (state.done[i] ? "Lezione completata ✓" : "Segna come completata →") + '</button></div>';
+  $("lessonBox").innerHTML = h;
+  var os = $("lessonBox").querySelectorAll(".opt");
+  for (var j = 0; j < os.length; j++) os[j].onclick = function(){
+    var pick = +this.getAttribute("data-i");
+    for (var x = 0; x < os.length; x++){ os[x].disabled = true; if (x === L.a) os[x].className = "opt ok"; }
+    if (pick !== L.a) this.className = "opt ko";
+    $("fb").textContent = (pick === L.a ? "Esatto. " : "Non proprio. ") + L.e;
+  };
+  $("fin").onclick = function(){
+    var was = lvlFull(L.lv);
+    state.done[i] = true; save();
+    if (!was && lvlFull(L.lv)) toast("Livello " + L.lv + " completato: " + LEVELS[L.lv-1]);
+    if (i + 1 < LESSONS.length) { openLesson(i + 1); window.scrollTo(0, 0); } else go("path");
+  };
+  curLesson = i;
+  go("lesson");
+}
+
+/* ---------- calcolatore ---------- */
+function n(id){ var v = parseFloat($(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+function money(x){ return Math.round(x).toLocaleString("it-IT") + " $"; }
+function calc(){
+  var clients = n("c"), qual = Math.min(n("q"), 100) / 100, cpa = n("cpa"), lots = n("l"), reb = n("r"), months = n("m");
+  var totCpa = clients * qual * cpa, monthly = clients * lots * reb, totReb = monthly * months;
+  $("oCpa").textContent = money(totCpa);
+  $("oMonth").textContent = money(monthly);
+  $("oReb").textContent = money(totReb);
+  $("oBe").textContent = monthly > 0 ? (totCpa / monthly).toLocaleString("it-IT", {maximumFractionDigits:1}) + " mesi" : "–";
+  var mx = Math.max(totCpa, totReb, 1);
+  $("bCpa").style.width = (totCpa / mx * 100) + "%";
+  $("bReb").style.width = (totReb / mx * 100) + "%";
+  var v;
+  if (totCpa === 0 && totReb === 0) v = "Inserisci i valori per confrontare i due modelli.";
+  else if (totReb > totCpa) v = "Su " + months + " mesi rende di più il rebate: " + money(totReb - totCpa) + " in più del CPA.";
+  else if (totCpa > totReb) v = "Su " + months + " mesi rende di più il CPA: " + money(totCpa - totReb) + " in più del rebate.";
+  else v = "Su " + months + " mesi i due modelli si equivalgono.";
+  $("verdict").textContent = v;
+}
+["c","q","cpa","l","r","m"].forEach(function(id){ $(id).addEventListener("input", calc); });
+
+/* ---------- glossario ---------- */
+function renderGloss(){
+  var f = $("gq").value.toLowerCase(), h = "";
+  for (var i = 0; i < GLOSS.length; i++)
+    if (!f || (GLOSS[i][0] + " " + GLOSS[i][1]).toLowerCase().indexOf(f) >= 0)
+      h += '<div class="term"><b>' + GLOSS[i][0] + '</b>' + GLOSS[i][1] + '</div>';
+  $("glist").innerHTML = h || '<p class="small">Nessun termine trovato.</p>';
+}
+$("gq").addEventListener("input", renderGloss);
+
+/* ---------- illustrazioni animate ---------- */
+function art(k){
+  var N = "#0f172a", G = "#2563eb", S = "#eff4ff", o = '<svg class="art" viewBox="0 0 320 140" role="img" aria-label="Illustrazione animata">';
+  if (k === 0){
+    var d = "M20 115 C70 115 80 85 120 85 S170 55 210 55 S270 25 300 25", pts = [[20,115],[120,85],[165,70],[210,55],[300,25]];
+    o += '<path class="draw" d="' + d + '" fill="none" stroke="' + G + '" stroke-width="3" stroke-linecap="round"/>';
+    for (var i = 0; i < 5; i++) o += '<circle class="pulse d' + (i + 1) + '" cx="' + pts[i][0] + '" cy="' + pts[i][1] + '" r="7" fill="' + N + '"/>';
+    o += '<circle r="5" fill="' + G + '" stroke="#fff" stroke-width="2"><animateMotion dur="5s" repeatCount="indefinite" path="' + d + '"/></circle>' +
+         '<text x="32" y="134">Basi</text><text x="282" y="48">Avanzato</text>';
+  } else if (k === 1){
+    o += '<line x1="50" y1="56" x2="270" y2="56" stroke="#e2e8f0" stroke-width="3"/>' +
+         '<path d="M270 76 Q215 116 160 76" fill="none" stroke="' + G + '" stroke-width="2" stroke-dasharray="4 5"/>' +
+         '<circle r="5" fill="' + N + '"><animateMotion dur="3s" repeatCount="indefinite" path="M50 56 L270 56"/></circle>' +
+         '<circle r="5" fill="' + G + '"><animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M270 76 Q215 116 160 76"/></circle>' +
+         '<circle cx="50" cy="56" r="20" fill="' + S + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<circle cx="160" cy="56" r="20" fill="' + N + '"/><circle cx="270" cy="56" r="20" fill="' + S + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<text class="w" x="160" y="60">IB</text><text x="50" y="96">Cliente</text><text x="270" y="96">Broker</text><text x="215" y="128">compenso</text>';
+  } else if (k === 2){
+    var h = [32,48,28,56,44,68];
+    o += '<line x1="36" y1="118" x2="284" y2="118" stroke="#e2e8f0" stroke-width="2"/>';
+    for (var j = 0; j < 6; j++) o += '<rect class="grow d' + (j % 5 + 1) + '" x="' + (50 + j * 40) + '" y="' + (118 - h[j]) + '" width="16" height="' + h[j] + '" rx="3" fill="' + (j % 2 ? G : N) + '"/>';
+    o += '<path class="draw" d="M58 36 L98 28 L138 38 L178 20 L218 26 L258 12" fill="none" stroke="' + G + '" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
+  } else if (k === 3){
+    o += '<line x1="160" y1="20" x2="160" y2="120" stroke="#e2e8f0" stroke-width="2"/>' +
+         '<g class="drop"><circle cx="80" cy="70" r="26" fill="' + G + '" stroke="' + N + '" stroke-width="2"/><text class="w" x="80" y="74">CPA</text></g>' +
+         '<ellipse class="drop d1" cx="240" cy="98" rx="30" ry="9" fill="' + G + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<ellipse class="drop d2" cx="240" cy="84" rx="30" ry="9" fill="' + G + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<ellipse class="drop d3" cx="240" cy="70" rx="30" ry="9" fill="' + G + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<text x="80" y="128">una volta</text><text x="240" y="128">Rebate: ogni mese</text>';
+  } else if (k === 5){
+    var xs = [70,160,250];
+    o += '<circle class="ring" cx="160" cy="34" r="18" fill="none" stroke="' + G + '" stroke-width="2"/>';
+    for (var m = 0; m < 3; m++) o += '<line x1="160" y1="34" x2="' + xs[m] + '" y2="96" stroke="#e2e8f0" stroke-width="3"/>' +
+         '<circle r="4.5" fill="' + G + '"><animateMotion dur="2.4s" begin="' + (m * 0.6) + 's" repeatCount="indefinite" path="M' + xs[m] + ' 96 L160 34"/></circle>';
+    for (var q = 0; q < 3; q++) o += '<circle cx="' + xs[q] + '" cy="96" r="14" fill="' + S + '" stroke="' + N + '" stroke-width="2"/><text x="' + xs[q] + '" y="128">sub-IB</text>';
+    o += '<circle cx="160" cy="34" r="18" fill="' + N + '"/><text class="w" x="160" y="38">IB</text>';
+  } else if (k === 4){
+    o += '<polygon class="pulse" points="90,18 230,18 205,48 115,48" fill="' + S + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<polygon class="pulse d2" points="118,54 202,54 186,84 134,84" fill="' + S + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<polygon class="pulse d4" points="134,90 186,90 176,122 144,122" fill="' + G + '" stroke="' + N + '" stroke-width="2"/>' +
+         '<text x="160" y="37">Visite</text><text x="160" y="73">Contatti</text><text class="w" x="160" y="110">Clienti</text>' +
+         '<circle r="4.5" fill="' + G + '"><animateMotion dur="2.6s" repeatCount="indefinite" path="M70 20 L124 122"/></circle>' +
+         '<circle r="4.5" fill="' + N + '"><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M250 20 L196 122"/></circle>';
+  } else if (k === 6){
+    var gp = "M40 112 L90 94 L130 100 L180 66 L225 72 L280 28";
+    o += '<path d="M40 18 V118 H290" fill="none" stroke="#e2e8f0" stroke-width="2"/>' +
+         '<circle class="ring" cx="280" cy="28" r="12" fill="none" stroke="' + G + '" stroke-width="2"/>' +
+         '<path class="draw" d="' + gp + '" fill="none" stroke="' + N + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
+         '<circle r="5.5" fill="' + G + '" stroke="#fff" stroke-width="2"><animateMotion dur="4.5s" repeatCount="indefinite" path="' + gp + '"/></circle>' +
+         '<text x="165" y="134">tempo</text>';
+  } else if (k === 8){
+    o += '<circle cx="160" cy="70" r="56" fill="none" stroke="#e2e8f0" stroke-width="2"/><circle cx="160" cy="70" r="36" fill="none" stroke="#e2e8f0" stroke-width="2"/>' +
+         '<g><circle cx="160" cy="14" r="8" fill="' + G + '" stroke="' + N + '" stroke-width="2"/><animateTransform attributeName="transform" type="rotate" from="0 160 70" to="360 160 70" dur="9s" repeatCount="indefinite"/></g>' +
+         '<g><circle cx="160" cy="34" r="6" fill="' + S + '" stroke="' + N + '" stroke-width="2"/><animateTransform attributeName="transform" type="rotate" from="360 160 70" to="0 160 70" dur="6s" repeatCount="indefinite"/></g>' +
+         '<g><circle cx="160" cy="126" r="6" fill="' + N + '"/><animateTransform attributeName="transform" type="rotate" from="0 160 70" to="360 160 70" dur="9s" repeatCount="indefinite"/></g>' +
+         '<circle cx="160" cy="70" r="18" fill="' + N + '"/><text class="w" x="160" y="74">IB</text>';
+  } else {
+    o += '<circle class="ring" cx="160" cy="70" r="44" fill="none" stroke="' + G + '" stroke-width="2"/>' +
+         '<path d="M160 18 L205 34 V72 C205 98 186 114 160 124 C134 114 115 98 115 72 V34 Z" fill="' + N + '"/>' +
+         '<path class="draw" d="M140 70 l14 14 l28 -30" fill="none" stroke="' + G + '" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>';
+  }
+  return o + '</svg>';
+}
+function lvlFull(lv){ for (var i = 0; i < LESSONS.length; i++) if (LESSONS[i].lv === lv && !state.done[i]) return false; return true; }
+function toast(t){ var e = $("toast"); e.textContent = t; e.className = "show"; setTimeout(function(){ e.className = ""; }, 2800); }
+
+/* ---------- assistenti ---------- */
+var curLesson = null, agent = "tutor", streak = 0, KB = [], DF = {}, STOPSET = {};
+var AGN = {tutor:"Tutor", coach:"Coach", exam:"Esaminatore"};
+function norm(t){ return t.toLowerCase().replace(/-/g, "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9 ]/g, " "); }
+norm("il lo la i gli le un uno una di a da in con su per tra fra e o che cosa come cos sono del della dei delle dell al alla ai nel nella mi ti si ci quanto quando quale quali chi perche posso puo devo deve fa fare ha ho piu non se ma anche funziona funzionano significa vuol dire spiega spiegami differenza").split(" ").forEach(function(w){ STOPSET[w] = 1; });
+function stems(t){
+  var w = norm(t).split(/\s+/), out = [];
+  for (var i = 0; i < w.length; i++){ var x = w[i]; if (x.length < 2 || STOPSET[x]) continue; out.push(x.length > 4 ? x.slice(0, -1) : x); }
+  return out;
+}
+function addKB(title, html, lesson, tw){
+  var e = {title:title, html:html, lesson:lesson, tw:tw, ts:{}, bs:{}}, all = {};
+  stems(title).forEach(function(s){ e.ts[s] = 1; all[s] = 1; });
+  stems(html.replace(/<[^>]+>/g, " ")).forEach(function(s){ e.bs[s] = 1; all[s] = 1; });
+  for (var k in all) DF[k] = (DF[k] || 0) + 1;
+  KB.push(e);
+}
+LESSONS.forEach(function(L, i){
+  var re = /<p>([\s\S]*?)<\/p>/g, m;
+  while ((m = re.exec(L.h))) addKB(L.t, m[1], i, 1.5);
+  var rr = /<tr><td>([\s\S]*?)<\/tr>/g;
+  while ((m = rr.exec(L.h))) addKB(L.t, m[1].replace(/<\/td><td>/g, ": ").replace(/<[^>]+>/g, ""), i, 1.5);
+});
+GLOSS.forEach(function(g){ addKB(g[0], "<b>" + g[0] + "</b>: " + g[1], null, 3); });
+FAQ.forEach(function(f){ addKB(f[0], f[1], null, 2.5); });
+
+function bot(html, acts){
+  var log = $("log"), ag = agent, t = document.createElement("div");
+  t.className = "msg bot dots"; t.innerHTML = '<span></span><span class="d1"></span><span class="d2"></span>';
+  log.appendChild(t); log.scrollTop = log.scrollHeight;
+  setTimeout(function(){
+    if (!t.parentNode) return;
+    t.className = "msg bot"; t.innerHTML = "<small>" + AGN[ag] + "</small>" + html;
+    (acts || []).forEach(function(a){
+      var b = document.createElement("button"); b.type = "button"; b.textContent = a.label;
+      b.onclick = function(){ a.fn(b); }; t.appendChild(b);
+    });
+    log.scrollTop = log.scrollHeight;
+  }, 450);
+}
+function me(text){ var d = document.createElement("div"); d.className = "msg me"; d.textContent = text; $("log").appendChild(d); }
+function closeChat(){ $("chat").hidden = true; $("fab").hidden = false; }
+function openFromChat(i){ closeChat(); openLesson(i); }
+
+function tutor(text){
+  if (/riassum/i.test(text) && curLesson !== null){
+    var L = LESSONS[curLesson], fp = (L.h.match(/<p>([\s\S]*?)<\/p>/) || ["", ""])[1];
+    bot(fp + "<br><br><b>Da ricordare:</b> " + L.tip); return;
+  }
+  var qs = {}, nq = 0, best = null, bs = 0, bh = 0;
+  stems(text).forEach(function(s){ if (!qs[s]){ qs[s] = 1; nq++; } });
+  KB.forEach(function(e){
+    var sc = 0, hit = 0;
+    for (var k in qs){ if (!DF[k] || !(e.ts[k] || e.bs[k])) continue; hit++; sc += Math.log(1 + KB.length / DF[k]) * ((e.ts[k] ? e.tw : 0) + (e.bs[k] ? 1 : 0)); }
+    if (sc > bs){ bs = sc; best = e; bh = hit; }
+  });
+  if (!best || bs < 1.2 || bh / nq < 0.6){ bot("Non ho trovato una risposta nelle lezioni. Prova con altre parole, per esempio «rebate», «clawback», «leva» o «sub-IB»."); return; }
+  var li = best.lesson;
+  bot(best.html, li === null ? [] : [{label:"Apri la lezione: " + LESSONS[li].t, fn:function(){ openFromChat(li); }}]);
+}
+function coach(){
+  var d = doneCount(), next = -1;
+  for (var i = LESSONS.length - 1; i >= 0; i--) if (!state.done[i] && (LESSONS[i].lv >= (state.level || 1) || next < 0)) next = i;
+  if (next < 0){ bot("Hai completato tutte le " + LESSONS.length + " lezioni. Per ripassare, passa all'Esaminatore."); return; }
+  var acts = [{label:"Apri: " + LESSONS[next].t, fn:function(){ openFromChat(next); }}];
+  if (!state.level){
+    acts.unshift({label:"Fai il test di livello", fn:function(){ closeChat(); go("test"); }});
+    bot("Non hai ancora fatto il test di livello: in cinque minuti ti dice da dove partire. Se preferisci, comincia dalla prima lezione.", acts);
+  } else {
+    bot("Sei al livello <b>" + state.level + " su " + LEVELS.length + ", " + LEVELS[state.level-1] + "</b>, con " + d + " su " + LESSONS.length + " lezioni completate. La prossima è nel livello " + LESSONS[next].lv + " e richiede " + LESSONS[next].min + " minuti.", acts);
+  }
+}
+function ask(){
+  var pool = [];
+  for (var i = 0; i < LESSONS.length; i++) if (state.done[i]) pool.push(i);
+  if (pool.length < 3){ pool = []; for (var j = 0; j < LESSONS.length; j++) pool.push(j); }
+  var L = LESSONS[pool[Math.floor(Math.random() * pool.length)]];
+  bot("<b>" + L.q + "</b>", L.o.map(function(o, k){
+    return {label:o, fn:function(b){
+      var bb = b.parentNode.querySelectorAll("button"); for (var x = 0; x < bb.length; x++) bb[x].disabled = true;
+      me(o); if (k === L.a) streak++; else streak = 0;
+      bot((k === L.a ? "Esatto. " : "Non proprio. ") + L.e + '<br><span class="small">Risposte giuste di fila: ' + streak + "</span>", [{label:"Un'altra domanda", fn:function(b2){ b2.disabled = true; ask(); }}]);
+    }};
+  }));
+}
+function renderChips(){
+  var c = agent === "tutor" ? (curLesson !== null ? ["Riassumi questa lezione"] : []).concat(["Meglio CPA o rebate?", "Cos'è il clawback?", "Serve una licenza?", "Per quanto tempo ricevo il rebate?"])
+        : agent === "coach" ? ["Dove sono arrivato?", "Rifaccio il test"] : ["Nuova domanda"];
+  var box = $("chips"); box.innerHTML = "";
+  c.forEach(function(t){ var b = document.createElement("button"); b.type = "button"; b.textContent = t; b.onclick = function(){ send(t); }; box.appendChild(b); });
+}
+function setAgent(a){
+  agent = a; $("log").innerHTML = "";
+  var tb = document.querySelectorAll(".tabs button");
+  for (var i = 0; i < tb.length; i++) tb[i].className = tb[i].getAttribute("data-ag") === a ? "on" : "";
+  if (a === "tutor") bot("Chiedimi qualsiasi cosa sul percorso: cerco la risposta nelle lezioni e nel glossario.");
+  else if (a === "coach") coach();
+  else ask();
+  renderChips();
+}
+function send(text){
+  text = text.trim(); if (!text) return;
+  me(text);
+  if (agent === "tutor") tutor(text);
+  else if (agent === "coach"){ if (/test/i.test(text)){ closeChat(); go("test"); } else coach(); }
+  else if (/nuova|altra|domanda/i.test(text)) ask();
+  else bot("Scegli una delle risposte qui sopra, oppure chiedi una nuova domanda.");
+}
+$("fab").onclick = function(){ $("chat").hidden = false; $("fab").hidden = true; if (!$("log").innerHTML) setAgent(agent); else renderChips(); };
+$("cx").onclick = closeChat;
+$("cf").onsubmit = function(ev){ ev.preventDefault(); send($("ci").value); $("ci").value = ""; };
+(function(){ var tb = document.querySelectorAll(".tabs button"); for (var i = 0; i < tb.length; i++) tb[i].onclick = function(){ setAgent(this.getAttribute("data-ag")); }; })();
+
+/* ---------- simulatore di leva ---------- */
+function money2(x){ return x.toLocaleString("it-IT", {maximumFractionDigits:2}) + " $"; }
+function sim(){
+  var bal = n("sb"), lev = +$("sl").value, lots = n("sv");
+  var pos = lots * 100000, mar = pos / lev, pip = lots * 10, mx = bal * lev / 100000;
+  $("sPos").textContent = money(pos);
+  $("sMar").textContent = money2(mar);
+  $("sPip").textContent = money2(pip);
+  $("sMax").textContent = mx.toLocaleString("it-IT", {maximumFractionDigits:2}) + " lotti";
+  $("sWipe").textContent = pip > 0 && mar <= bal ? Math.round(bal / pip).toLocaleString("it-IT") + " pip" : "–";
+  var v;
+  if (!lots || !bal) v = "Inserisci saldo e volume.";
+  else if (mar > bal) v = "Posizione non apribile con questa leva: il margine richiesto (" + money2(mar) + ") supera il saldo.";
+  else v = "Leva effettiva " + Math.round(pos / bal) + ":1. Un movimento contrario di circa " + Math.round(bal / pip) + " pip consuma l'intero saldo; nella pratica lo stop out chiude le posizioni prima.";
+  $("sVerdict").textContent = v;
+}
+["sb","sl","sv"].forEach(function(id){ $(id).addEventListener("input", sim); });
+
+/* ---------- manuale ---------- */
+var manualBuilt = false;
+function renderManual(){
+  if (manualBuilt) return; manualBuilt = true;
+  var h = "", toc = "";
+  for (var lv = 1; lv <= LEVELS.length; lv++){
+    toc += '<button type="button" data-ml="' + lv + '">' + lv + '. ' + LEVELS[lv-1] + '</button>';
+    h += '<div class="panel" id="mlv' + lv + '"><span class="pill">Livello ' + lv + '</span><h2 style="margin-top:12px">' + LEVELS[lv-1] + '</h2>';
+    for (var i = 0; i < LESSONS.length; i++){
+      var L = LESSONS[i]; if (L.lv !== lv) continue;
+      h += '<article class="mart"><h3>' + L.t + '</h3><span class="small">' + L.min + ' minuti di lettura</span>' + L.h +
+           '<p class="mnote"><b>Da ricordare:</b> ' + L.tip + '</p>' +
+           '<p class="noprint" style="margin:0"><button class="btn ghost" type="button" data-open="' + i + '">Apri nel percorso, con verifica</button></p></article>';
+    }
+    h += '</div>';
+  }
+  $("mtoc").innerHTML = toc; $("mbody").innerHTML = h; filterManual();
+}
+function filterManual(){
+  var f = norm($("mq").value).trim(), shown = 0, arts = document.querySelectorAll(".mart");
+  for (var i = 0; i < arts.length; i++){ var ok = !f || norm(arts[i].textContent).indexOf(f) >= 0; arts[i].hidden = !ok; if (ok) shown++; }
+  for (var lv = 1; lv <= LEVELS.length; lv++){ var p = $("mlv" + lv); p.hidden = !p.querySelector(".mart:not([hidden])"); }
+  $("mcount").textContent = f ? (shown ? shown + (shown === 1 ? " lezione trovata." : " lezioni trovate.") : "Nessuna lezione contiene questo testo.") : LESSONS.length + " lezioni in " + LEVELS.length + " livelli.";
+}
+$("mq").addEventListener("input", filterManual);
+$("mprint").onclick = function(){ window.print(); };
+document.addEventListener("click", function(ev){
+  var o = ev.target.closest("[data-open]"); if (o){ openLesson(+o.getAttribute("data-open")); return; }
+  var m = ev.target.closest("[data-ml]"); if (m){ var t = $("mlv" + m.getAttribute("data-ml")); if (t && !t.hidden) t.scrollIntoView({behavior:"smooth", block:"start"}); }
+});
+
+calc(); sim(); renderGloss(); go("home");
 </script>
 </body>
 </html>
